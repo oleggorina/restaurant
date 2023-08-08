@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@700&family=Josefin+Sans:wght@400;500&display=swap');
+@import './scss/common';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: $font-header;
+  font-weight: bold;
+  color: $color-primary;
+}
+
+h1 {
+  font-size: 65px;
+}
+
+h2 {
+  font-size: 60px;
+}
+
+h3 {
+  font-size: 55px;
+}
+
+h4 {
+  font-size: 40px;
+}
+
+h5 {
+  font-size: 30px;
+}
+
+h6 {
+  font-size: 25px;
+}
+
+a {
+  text-decoration: none;
+}
+
+p, span, a {
+  font-family: $font-main;
+  font-weight: 400;
+  font-size: 20px;
+  color: #DFDFDF;
+}
+
+ul, ol {
+  font-family: $font-main;
+  font-size: 20px;
+  font-weight: 400;
+  color: $color-gray;
+}
+
+button {
+  font-family: $font-main;
+  font-weight: 500;
+  font-size: 22px;
+  color: $color-primary;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  @include sm {
+    font-size: 18px;
+  }
+}

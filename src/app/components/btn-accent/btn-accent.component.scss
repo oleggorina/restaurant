@@ -1,0 +1,12 @@
+@import '../../../scss/common';
+
+.accent {
+  background-color: $color-accent;
+  padding: $gap calc($gap*2);
+  border: 1px solid $color-accent;
+  color: $color-primary;
+  &:hover {
+    background-color: transparent;
+    color: $color-accent;
+  }
+}

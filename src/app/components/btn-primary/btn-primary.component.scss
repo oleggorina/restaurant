@@ -1,0 +1,18 @@
+@import '../../../scss/common';
+
+.primary {
+  padding: $gap calc($gap*2);
+  border: 1px solid $color-accent;
+  @include sm {
+    
+  }
+  &:hover {
+    background-color: $color-accent;
+  }
+  &.white {
+    color: $color-light;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
