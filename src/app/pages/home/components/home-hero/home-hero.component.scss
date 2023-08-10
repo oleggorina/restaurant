@@ -74,6 +74,7 @@
       }
       @include sm {
         border: 10px solid $color-card;
+        border-bottom: none;
       }
       img {
         width: 100%;

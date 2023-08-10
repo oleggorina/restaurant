@@ -18,6 +18,7 @@
   &__call {
     grid-area: call;
     justify-self: flex-start;
+    // animation: appearance 0.5s forwards;
     @include lg {
       justify-self: center;
     }
@@ -25,6 +26,7 @@
   &__logo {
     grid-area: logo;
     justify-self: center;
+    // animation: appearance 0.5s forwards;
     @include lg {
       justify-self: center;
     }
@@ -37,6 +39,7 @@
   &__reservation {
     grid-area: reservation;
     justify-self: flex-end;
+    // animation: appearance 0.5s forwards;
     @include lg {
       justify-self: center;
     }
@@ -48,4 +51,12 @@
     @extend %wrapper;
     background-color: $color-primary;
   }
+  // @keyframes appearance {
+  //   from {
+  //     opacity: 0;
+  //   }
+  //   to {
+  //     opacity: 1;
+  //   }
+  // }
 }

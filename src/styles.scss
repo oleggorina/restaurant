@@ -54,6 +54,12 @@ p, span, a {
   font-weight: 400;
   font-size: 20px;
   color: #DFDFDF;
+  @include lg {
+    font-size: 18px;
+  }
+  @include sm {
+    font-size: 17px;
+  }
 }
 
 ul, ol {
@@ -73,5 +79,14 @@ button {
   background-color: transparent;
   @include sm {
     font-size: 18px;
+  }
+}
+
+section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  @include lg {
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 }

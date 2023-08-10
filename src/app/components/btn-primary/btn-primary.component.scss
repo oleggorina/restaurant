@@ -3,6 +3,7 @@
 .primary {
   padding: $gap calc($gap*2);
   border: 1px solid $color-accent;
+  transition: 0.3s ease-in-out;
   @include sm {
     
   }

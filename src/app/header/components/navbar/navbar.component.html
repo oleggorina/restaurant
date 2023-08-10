@@ -1,5 +1,5 @@
 <div class="navbar">
-  <div class="navbar__links" *ngIf="width > 992">
+  <div class="navbar__links" *ngIf="width > 992" #links>
     <a routerLink="home" routerLinkActive="active" class="navbar__links-link">Home</a>
     <a routerLink="about" routerLinkActive="active" class="navbar__links-link">About</a>
     <a routerLink="menu" routerLinkActive="active" class="navbar__links-link">Menu</a>
@@ -11,7 +11,7 @@
   <div class="navbar__burger" *ngIf="width < 992">
     <app-burger></app-burger>
   </div>
-  <div class="navbar__socials">
+  <div class="navbar__socials" #socials>
     <div class="navbar__socials-item">
       <i class="fa-brands fa-instagram"></i>
     </div>
