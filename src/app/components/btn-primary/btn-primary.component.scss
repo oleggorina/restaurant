@@ -16,4 +16,10 @@
       color: $color-primary;
     }
   }
+  &.accent {
+    color: $color-accent;
+    &:hover {
+      color: black;
+    }
+  }
 }

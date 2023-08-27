@@ -1,0 +1,48 @@
+<div class="home">
+  <div class="container">
+    <section class="menu">
+      <div class="menu__content">
+        <div class="menu__content-title" #contentTitle>
+          <div class="subtitle">
+            <app-subtitle [text]="'menu'"></app-subtitle>
+          </div>
+          <h4>Try Our Special Offers</h4>
+          <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content making it look like readable English. </p>
+        </div>
+        <div class="menu__content-image" #contentImage>
+          <img src="../../../../../assets/images/home/menu/menu.png" alt="menu">
+        </div>
+        <div class="menu__content-btn">
+          <app-btn-primary [btnText]="'See all dishes'" [textColor]="'accent'"></app-btn-primary>
+        </div>
+      </div>
+      <div class="menu__dishes" >
+        <div class="menu__dishes-items">
+          <div class="title">
+            <h4>Starters</h4>
+          </div>
+          <div class="item" *ngFor="let product of menuStarter" #menuItem>
+            <app-product-item [title]="product.title" [image]="product.image" [price]="product.price" [subtitle]="product.descr"></app-product-item>
+          </div>
+        </div>
+        <div class="menu__dishes-items">
+          <div class="title">
+            <h4>Main Dish</h4>
+          </div>
+          <div class="item" *ngFor="let product of menuMainDish" #menuItem>
+            <app-product-item [title]="product.title" [image]="product.image" [price]="product.price" [subtitle]="product.descr"></app-product-item>
+          </div>
+        </div>
+        <div class="menu__dishes-items">
+          <div class="title">
+            <h4>Dessert</h4>
+          </div>
+          <div class="item" *ngFor="let product of menuDessert" #menuItem>
+            <app-product-item [title]="product.title" [image]="product.image" [price]="product.price" [subtitle]="product.descr"></app-product-item>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="wrapper"></div>
+</div>

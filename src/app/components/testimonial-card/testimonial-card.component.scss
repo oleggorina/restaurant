@@ -1,0 +1,69 @@
+@import '../../../scss/common';
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content max-content;
+  padding: calc($gap * 2);
+  background-color: $color-card;
+  &__user {
+    display: flex;
+    gap: $gap;
+    align-items: center;
+    margin-bottom: $gap;
+    @include sm {
+      flex-direction: column;
+    }
+    &-image {
+      border-radius: 50%;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .symbol {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: $color-accent;
+        border: 2px solid $color-primary;
+        color: $color-primary;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    &-name {
+      display: flex;
+      flex-direction: column;
+      gap: calc($gap / 2);
+      h5 {
+        color: $color-light;
+      }
+      span {
+        color: $color-accent;
+        @include sm {
+          text-align: center;
+        }
+      }
+    }
+  }
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: $color-gray;
+  }
+  &__text {
+    margin-top: $gap;
+    p {
+      font-style: italic;
+      line-height: 146.5%;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import '../../../scss/common';
+
+.product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include md {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc($gap / 2);
+  }
+  &__content {
+    display: flex;
+    gap: $gap;
+    align-items: center;
+    @include md {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &-title {
+      @include md {
+        display: flex;
+        flex-direction: column;
+        gap: calc($gap / 2);
+      }
+      span {
+        color: $color-gray;
+      }
+    }
+  }
+  &__line {
+    width: 100px;
+    height: 50px;
+    border-bottom: 2px dashed #aaa;
+    flex: 0.9;
+    @include md {
+      display: none;
+    }
+  }
+}

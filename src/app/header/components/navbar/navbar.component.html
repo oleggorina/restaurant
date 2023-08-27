@@ -1,28 +1,32 @@
-<div class="navbar">
-  <div class="navbar__links" *ngIf="width > 992" #links>
-    <a routerLink="home" routerLinkActive="active" class="navbar__links-link">Home</a>
-    <a routerLink="about" routerLinkActive="active" class="navbar__links-link">About</a>
-    <a routerLink="menu" routerLinkActive="active" class="navbar__links-link">Menu</a>
-    <a routerLink="reservation" routerLinkActive="active" class="navbar__links-link">Reservation</a>
-    <a routerLink="gallery" routerLinkActive="active" class="navbar__links-link">Gallery</a>
-    <a routerLink="blog" routerLinkActive="active" class="navbar__links-link">Blog</a>
-    <a routerLink="contact" routerLinkActive="active" class="navbar__links-link">Contact</a>
-  </div>
-  <div class="navbar__burger" *ngIf="width < 992">
-    <app-burger></app-burger>
-  </div>
-  <div class="navbar__socials" #socials>
-    <div class="navbar__socials-item">
-      <i class="fa-brands fa-instagram"></i>
+<div class="line"></div>
+<div class="container">
+  <div class="navbar">
+    <div class="navbar__links" *ngIf="width > 992" #links>
+      <a routerLink="home" routerLinkActive="active" class="navbar__links-link">Home</a>
+      <a routerLink="about" routerLinkActive="active" class="navbar__links-link">About</a>
+      <a routerLink="menu" routerLinkActive="active" class="navbar__links-link">Menu</a>
+      <a routerLink="reservation" routerLinkActive="active" class="navbar__links-link">Reservation</a>
+      <a routerLink="gallery" routerLinkActive="active" class="navbar__links-link">Gallery</a>
+      <a routerLink="blog" routerLinkActive="active" class="navbar__links-link">Blog</a>
+      <a routerLink="contact" routerLinkActive="active" class="navbar__links-link">Contact</a>
     </div>
-    <div class="navbar__socials-item">
-      <i class="fa-brands fa-facebook"></i>
+    <div class="navbar__burger" *ngIf="width < 992">
+      <app-burger></app-burger>
     </div>
-    <div class="navbar__socials-item">
-      <i class="fa-brands fa-twitter"></i>
-    </div>
-    <div class="navbar__socials-item">
-      <i class="fa-brands fa-pinterest"></i>
+    <div class="navbar__socials" #socials>
+      <div class="navbar__socials-item">
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+      <div class="navbar__socials-item">
+        <i class="fa-brands fa-facebook"></i>
+      </div>
+      <div class="navbar__socials-item">
+        <i class="fa-brands fa-twitter"></i>
+      </div>
+      <div class="navbar__socials-item">
+        <i class="fa-brands fa-pinterest"></i>
+      </div>
     </div>
   </div>
 </div>
+<div class="line"></div>

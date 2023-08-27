@@ -1,0 +1,26 @@
+@import '../../../../../scss/common';
+
+.home {
+  position: relative;
+  overflow: hidden;
+  .container {
+    @extend %container;
+    .testimonials {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: calc($gap * 2.5);
+      &__content {
+        display: flex;
+        flex-direction: column;
+        gap: $gap;
+        h4 {
+          color: $color-light;
+        }
+      }
+    }
+  }
+  .wrapper {
+    @extend %wrapper;
+    background-color: $color-primary;
+  }
+}

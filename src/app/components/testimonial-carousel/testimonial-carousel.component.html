@@ -1,0 +1,20 @@
+<div class="carousel">
+  <div class="wrapper" #carousel>
+    <div class="carousel__items" #carouselItems>
+      <div class="carousel__items-item" #cardItem *ngFor="let card of testimonialData"
+      [style.width]="cardWidthValue">
+        <app-testimonial-card
+        [name]="card.name"
+        [city]="card.city"
+        [image]="card.image"
+        [testimonial]="card.testimonial">
+      </app-testimonial-card>
+      </div>
+    </div>
+  </div>
+  <div class="carousel__indicators">
+    <div class="carousel__indicators-item" 
+    *ngFor="let item of slideIndicators; let i = index" 
+    (click)="goToSlide(i)" [ngClass]="{'active' : i === currentIndex}"></div>
+  </div>
+</div>

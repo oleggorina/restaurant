@@ -16,7 +16,7 @@ export class HomeAboutComponent implements AfterViewInit {
   
   ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);
-    this.initAnimation();
+    // this.initAnimation();
   }
 
   initAnimation(): void {
@@ -34,8 +34,7 @@ export class HomeAboutComponent implements AfterViewInit {
           trigger: element,
           start: 'top 90%',
           end: 'bottom 70%',
-          scrub: true,
-          markers: true
+          scrub: true
         }
       })
     })
@@ -51,8 +50,7 @@ export class HomeAboutComponent implements AfterViewInit {
           trigger: element,
           start: 'top 90%',
           end: 'bottom 70%',
-          scrub: true,
-          markers: true,
+          scrub: true
         }
       })
     })
@@ -62,8 +60,7 @@ export class HomeAboutComponent implements AfterViewInit {
         trigger: this.storyImage.nativeElement,
         start: 'top 90%',
         end: 'bottom 70%',
-        scrub: true,
-        markers: true
+        scrub: true
       }
     })
     gsap.from(this.sign.nativeElement, {
@@ -73,8 +70,7 @@ export class HomeAboutComponent implements AfterViewInit {
         trigger: this.sign.nativeElement,
         start: 'top 90%',
         end: 'bottom 70%',
-        scrub: true,
-        markers: true
+        scrub: true
       }
     })
   }

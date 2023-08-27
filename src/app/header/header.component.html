@@ -1,15 +1,17 @@
 <div class="header">
-  <div class="header__wrapper"></div>
-  <div class="header__call" #callBtn>
-    <app-btn-primary [btnText]="'Call - 123 456 78'" [textColor]="'white'"></app-btn-primary>
+  <div class="container">
+    <div class="content">
+      <div class="content__call" #callBtn>
+        <app-btn-primary [btnText]="'Call - 123 456 78'" [textColor]="'white'"></app-btn-primary>
+      </div>
+      <div class="content__logo" #logo>
+        <img src="../../assets/images/logo/logo.png" alt="logo">
+      </div>
+      <div class="content__reservation" #reservationBtn>
+        <app-btn-accent [btnText]="'Reservation'"></app-btn-accent>
+      </div>
+    </div>
   </div>
-  <div class="header__logo" #logo>
-    <img src="../../assets/images/logo/logo.png" alt="logo">
-  </div>
-  <div class="header__reservation" #reservationBtn>
-    <app-btn-accent [btnText]="'Reservation'"></app-btn-accent>
-  </div>
-  <div class="header__navbar">
-    <app-navbar></app-navbar>
-  </div>
+  <app-navbar></app-navbar>
+  <div class="wrapper"></div>
 </div>
