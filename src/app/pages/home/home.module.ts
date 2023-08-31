@@ -9,6 +9,7 @@ import { HomeAboutComponent } from './components/home-about/home-about.component
 import { HomeMenuComponent } from './components/home-menu/home-menu.component';
 import { HomeTestimonialsComponent } from './components/home-testimonials/home-testimonials.component';
 import { HomeParallaxComponent } from './components/home-parallax/home-parallax.component';
+import { HomeOfferComponent } from './components/home-offer/home-offer.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HomeParallaxComponent } from './components/home-parallax/home-parallax.
     HomeAboutComponent,
     HomeMenuComponent,
     HomeTestimonialsComponent,
-    HomeParallaxComponent
+    HomeParallaxComponent,
+    HomeOfferComponent
   ],
   imports: [
     CommonModule,

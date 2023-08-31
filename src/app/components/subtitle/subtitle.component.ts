@@ -9,4 +9,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class SubtitleComponent {
   @Input() text: string = '';
   @Input() textColor: string = '';
+  @Input() borderColor: string = '';
 }

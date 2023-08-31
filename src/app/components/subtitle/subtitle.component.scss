@@ -1,11 +1,14 @@
 @import '../../../scss/common';
 
 .subtitle {
-  // position: relative;
   display: inline-block;
   border-top: 1px solid $color-accent;
   border-bottom: 1px solid $color-accent;
   padding: 5px 0;
+  &.primary {
+    border-top: 1px solid $color-primary;
+    border-bottom: 1px solid $color-primary;
+  }
   h6 {
     color: $color-primary;
     letter-spacing: 0.2em;
