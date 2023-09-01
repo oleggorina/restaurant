@@ -1,0 +1,32 @@
+<div class="container">
+  <section class="dishes">
+    <div class="dishes__content">
+      <div class="dishes__content-title">
+        <app-subtitle [text]="'menu'"></app-subtitle>
+        <h4>Popular Dishes</h4>
+      </div>
+      <div class="dishes__content-text">
+        <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content making.</p>
+      </div>
+    </div>
+    <div class="dishes__items">
+      <div class="dishes__items-item" *ngFor="let item of popularDishesData.slice(-4)">
+        <div class="item">
+          <div class="item__image">
+            <img src="{{item.image}}" alt="{{item.title}} image">
+          </div>
+          <div class="item__title">
+            <h5>{{item.title}}</h5>
+            <h5>{{item.price | currency}}</h5>
+          </div>
+          <div class="item__text">
+            <p>{{item.descr}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dishes__btn">
+      <app-btn-primary [btnText]="'See all dishes'" [textColor]="'accent'"></app-btn-primary>
+    </div>
+  </section>
+</div>

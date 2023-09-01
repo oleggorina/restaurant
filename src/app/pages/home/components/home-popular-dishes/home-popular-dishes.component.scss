@@ -1,0 +1,75 @@
+@import '../../../../../scss/common';
+
+.container {
+  @extend %container;
+  .dishes {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr max-content;
+    gap: calc($gap * 3);
+    &__content {
+      display: flex;
+      flex-direction: column;
+      max-width: 700px;
+      text-align: center;
+      justify-self: center;
+      gap: $gap;
+      &-text {
+        p {
+          color: $color-gray;
+        }
+      }
+    }
+    &__items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: calc($gap * 1.5);
+      @include ul {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 1fr;
+      }
+      @include lg {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        padding: 0 calc($gap * 5);
+      }
+      @include md {
+        padding: 0 calc($gap * 2);
+      }
+      @include sm {
+        padding: 0;
+      }
+      &-item {
+        .item {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr max-content max-content;
+          gap: $gap;
+          &__image {
+            img {
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+          &__title {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0 15px 0;
+            border-bottom: 1px solid #DCDCDC;
+            @include sm {
+              flex-direction: column;
+            }
+          }
+          &__text {
+            p {
+              color: $color-gray;
+            }
+          }
+        }
+      }
+    }
+    &__btn {
+      justify-self: center;
+    }
+  }
+}

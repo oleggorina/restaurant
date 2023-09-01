@@ -12,3 +12,10 @@ export interface ITestimonialCard {
   image: string;
   testimonial: string;
 }
+
+export interface IPopularDishes {
+  title: string;
+  price: number;
+  image: string;
+  descr: string;
+}
