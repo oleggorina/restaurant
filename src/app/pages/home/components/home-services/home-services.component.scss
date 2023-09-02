@@ -1,0 +1,73 @@
+@import '../../../../../scss/common';
+
+.home {
+  position: relative;
+  .container {
+    @extend %container;
+    .services {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr;
+      gap: calc($gap * 3);
+      @include lg {
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content;
+        gap: calc($gap * 2);
+      }
+      &__content {
+        display: flex;
+        flex-direction: column;
+        gap: $gap;
+        align-self: center;
+        &-title {
+          h4 {
+            color: $color-light;
+          }
+        }
+        &-text {
+          p {
+            color: $color-light;
+          }
+        }
+      }
+      &__icons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $gap;
+        @include ul {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+        }
+        @include md {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(3, 1fr);
+        }
+        &-icon {
+          padding: calc($gap * 2);
+          border: $gap solid $color-card;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          @include sm {
+            padding: calc($gap * 1.5);
+            border: calc($gap / 2) solid $color-card;
+          }
+          .content {
+            display: flex;
+            flex-direction: column;
+            gap: $gap;
+            text-align: center;
+            &__title {
+              h6 {
+                color: $color-light;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .wrapper {
+    @extend %wrapper;
+    background-color: $color-primary;
+  }
+}

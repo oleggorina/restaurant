@@ -11,6 +11,8 @@ import { HomeTestimonialsComponent } from './components/home-testimonials/home-t
 import { HomeParallaxComponent } from './components/home-parallax/home-parallax.component';
 import { HomeOfferComponent } from './components/home-offer/home-offer.component';
 import { HomePopularDishesComponent } from './components/home-popular-dishes/home-popular-dishes.component';
+import { HomeServicesComponent } from './components/home-services/home-services.component';
+import { HomeBlogComponent } from './components/home-blog/home-blog.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { HomePopularDishesComponent } from './components/home-popular-dishes/hom
     HomeTestimonialsComponent,
     HomeParallaxComponent,
     HomeOfferComponent,
-    HomePopularDishesComponent
+    HomePopularDishesComponent,
+    HomeServicesComponent,
+    HomeBlogComponent
   ],
   imports: [
     CommonModule,
