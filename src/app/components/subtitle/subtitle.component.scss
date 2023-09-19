@@ -19,5 +19,11 @@
     &.white {
       color: $color-light;
     }
+    &.link {
+      cursor: pointer;
+      &:hover {
+        color: $color-accent;
+      }
+    }
   }
 }

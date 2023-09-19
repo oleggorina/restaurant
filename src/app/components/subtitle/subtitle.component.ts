@@ -10,4 +10,5 @@ export class SubtitleComponent {
   @Input() text: string = '';
   @Input() textColor: string = '';
   @Input() borderColor: string = '';
+  @Input() isLink: boolean = false;
 }

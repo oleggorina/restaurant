@@ -7,6 +7,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { SubtitleComponent } from './subtitle/subtitle.component';
 import { TestimonialCarouselComponent } from './testimonial-carousel/testimonial-carousel.component';
 import { TestimonialCardComponent } from './testimonial-card/testimonial-card.component';
+import { CardBlogComponent } from './card-blog/card-blog.component';
 
 
 
@@ -18,7 +19,8 @@ import { TestimonialCardComponent } from './testimonial-card/testimonial-card.co
     ProductItemComponent,
     SubtitleComponent,
     TestimonialCarouselComponent,
-    TestimonialCardComponent
+    TestimonialCardComponent,
+    CardBlogComponent
   ],
   imports: [
     CommonModule
@@ -30,7 +32,8 @@ import { TestimonialCardComponent } from './testimonial-card/testimonial-card.co
     ProductItemComponent,
     SubtitleComponent,
     TestimonialCarouselComponent,
-    TestimonialCardComponent
+    TestimonialCardComponent,
+    CardBlogComponent
   ]
 })
 export class ComponentsModule { }

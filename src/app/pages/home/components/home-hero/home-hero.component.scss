@@ -2,9 +2,9 @@
 
 .home {
   position: relative;
-  overflow: hidden;
   .container {
     @extend %container;
+    overflow: hidden;
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;

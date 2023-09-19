@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card__image">
+    <img src="{{image}}" alt="">
+    <div class="card__image-wrapper"></div>
+    <div class="card__image-btn">
+      <app-btn-primary [btnText]="'View More'" [textColor]="'accent'"></app-btn-primary>
+    </div>
+  </div>
+  <div class="card__content">
+    <div class="card__content-subtitle">
+      <app-subtitle [text]="type" [isLink]="true"></app-subtitle>
+      <app-subtitle [text]="date"></app-subtitle>
+    </div>
+    <div class="card__content-title">
+      <h5>{{title}}</h5>
+    </div>
+    <div class="card__content-text">
+      <p>{{summary}}</p>
+    </div>
+  </div>
+</div>

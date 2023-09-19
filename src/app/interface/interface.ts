@@ -19,3 +19,11 @@ export interface IPopularDishes {
   image: string;
   descr: string;
 }
+
+export interface ICardBlog {
+  title: string;
+  summary: string;
+  image: string;
+  date: string;
+  type: string;
+}

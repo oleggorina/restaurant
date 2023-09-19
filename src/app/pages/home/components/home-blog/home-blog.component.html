@@ -1,1 +1,19 @@
-<p>home-blog works!</p>
+<div class="container">
+  <section class="blog">
+    <div class="blog__content">
+      <div class="blog__content-title">
+        <app-subtitle [text]="'blog'"></app-subtitle>
+        <h4>Be First Who Read News</h4>
+      </div>
+      <div class="blog__content-text">
+        <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content making.</p>
+      </div>
+    </div>
+    <div class="blog__articles">
+      <div class="blog__articles-item" *ngFor="let article of articles">
+        <app-card-blog [title]="article.title" [summary]="article.summary"
+        [image]="article.image" [date]="article.date" [type]="article.type"></app-card-blog>
+      </div>
+    </div>
+  </section>
+</div>
