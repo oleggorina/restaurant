@@ -1,0 +1,23 @@
+@import '../../../../scss/common';
+
+
+.left {
+  display: grid;
+  @include lg {
+    text-align: center;
+  }
+  &__contacts {
+    display: grid;
+    gap: $gap;
+    &-info {
+      display: grid;
+      gap: calc($gap / 2);
+      p {
+        color: $color-light;
+      }
+      span {
+        color: $color-accent;
+      }
+    }
+  }
+}

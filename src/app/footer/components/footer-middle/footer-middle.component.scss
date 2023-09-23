@@ -1,0 +1,36 @@
+@import '../../../../scss/common';
+
+.middle {
+  display: grid;
+  gap: $gap;
+  &__text {
+    justify-self: center;
+    max-width: 300px;
+    text-align: center;
+    span {
+      color: $color-light;
+    }
+  }
+  &__form {
+    form {
+      .row {
+        display: flex;
+        align-items: center;
+        @include md {
+          flex-direction: column;
+        }
+        .col {
+          width: 100%;
+          position: relative;
+          input {
+            border: 1px solid $color-gray;
+            color: $color-light;
+            &::placeholder {
+              color: $color-light;
+            }
+          }
+        }
+      }
+    }
+  }
+}

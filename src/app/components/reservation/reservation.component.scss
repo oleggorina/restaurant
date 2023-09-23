@@ -1,0 +1,81 @@
+@import '../../../scss/common';
+
+.reservation {
+  padding: 140px;
+  background-image: url('../../../assets/images/reservation/background.jpg');
+  background-position: 100% 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include ul {
+    padding: 120px;
+  }
+  @include lg {
+    padding: 40px 0;
+  }
+  &__form {
+    padding: 150px;
+    background: $color-primary;
+    display: grid;
+    gap: calc($gap * 2);
+    @include ul {
+      padding: 120px;
+    }
+    @include xl {
+      padding: 100px;
+    }
+    @include lg {
+      padding: 20px;
+    }
+    @include md {
+      padding: 40px 20px;
+    }
+    @include sm  {
+      margin: calc($gap / 2);
+    }
+    &-title {
+      display: grid;
+      justify-content: center;
+      text-align: center;
+      gap: $gap;
+      h4 {
+        color: $color-light;
+      }
+    }
+    &-form {
+      form {
+        display: grid;
+        gap: $gap;
+        .row {
+          display: flex;
+          gap: $gap;
+          @include md {
+            flex-direction: column;
+          }
+          .col {
+            width: 100%;
+            position: relative;
+            input {
+              border: 1px solid $color-gray;
+              color: $color-light;
+              &::placeholder,
+              &[type="date"],
+              &[type="time"] {
+                color: $color-light;
+              }
+              &::-webkit-calendar-picker-indicator {
+                filter: invert(1);
+              }
+            }
+          }
+        }
+        .btn {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<div class="reservation">
+  <div class="reservation__form">
+    <div class="reservation__form-title">
+      <app-subtitle [text]="'reservation'" [textColor]="'white'"></app-subtitle>
+      <h4>Book your table now</h4>
+    </div>
+    <div class="reservation__form-form">
+      <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col">
+            <input type="text" placeholder="Name" formControlName="name">
+            <app-validation-message *ngIf="reservationForm.get('name')?.hasError('required') && reservationForm.get('name')?.touched" 
+            [message]="'Name is required !'"></app-validation-message>
+            <app-validation-message *ngIf="reservationForm.get('name')?.hasError('minlength')" 
+            [message]="'Min 4 characters !'"></app-validation-message>
+          </div>
+          <div class="col">
+            <input type="email" placeholder="Email" formControlName="email">
+            <app-validation-message *ngIf="reservationForm.get('email')?.hasError('required') && reservationForm.get('email')?.touched" 
+            [message]="'Email is required !'"></app-validation-message>
+            <app-validation-message *ngIf="reservationForm.get('email')?.hasError('email')" 
+            [message]="'Invalid email !'"></app-validation-message>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <input type="number" placeholder="Person" min="1" formControlName="person">
+            <app-validation-message *ngIf="reservationForm.get('person')?.hasError('required') && reservationForm.get('person')?.touched" 
+            [message]="'Number of guests is required !'"></app-validation-message>
+          </div>
+          <div class="col">
+            <input id="time" type="time" placeholder="Timing" formControlName="timing">
+            <app-validation-message *ngIf="reservationForm.get('timing')?.hasError('required') && reservationForm.get('timing')?.touched" 
+            [message]="'Visiting time is required !'"></app-validation-message>
+          </div>
+          <div class="col">
+            <input type="date" placeholder="Date" formControlName="date">
+            <app-validation-message *ngIf="reservationForm.get('date')?.hasError('required') && reservationForm.get('date')?.touched" 
+            [message]="'Visiting date is required !'"></app-validation-message>
+          </div>
+        </div>
+        <div class="btn">
+          <app-btn-form>Book a Table</app-btn-form>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

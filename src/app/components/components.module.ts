@@ -8,7 +8,11 @@ import { SubtitleComponent } from './subtitle/subtitle.component';
 import { TestimonialCarouselComponent } from './testimonial-carousel/testimonial-carousel.component';
 import { TestimonialCardComponent } from './testimonial-card/testimonial-card.component';
 import { CardBlogComponent } from './card-blog/card-blog.component';
-
+import { ReservationComponent } from './reservation/reservation.component';
+import { ValidationMessageComponent } from './validation-message/validation-message.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SocialsComponent } from './socials/socials.component';
+import { BtnFormComponent } from './btn-form/btn-form.component';
 
 
 @NgModule({
@@ -20,10 +24,15 @@ import { CardBlogComponent } from './card-blog/card-blog.component';
     SubtitleComponent,
     TestimonialCarouselComponent,
     TestimonialCardComponent,
-    CardBlogComponent
+    CardBlogComponent,
+    ReservationComponent,
+    ValidationMessageComponent,
+    SocialsComponent,
+    BtnFormComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     BtnPrimaryComponent,
@@ -33,7 +42,11 @@ import { CardBlogComponent } from './card-blog/card-blog.component';
     SubtitleComponent,
     TestimonialCarouselComponent,
     TestimonialCardComponent,
-    CardBlogComponent
+    CardBlogComponent,
+    ReservationComponent,
+    ValidationMessageComponent,
+    SocialsComponent,
+    BtnFormComponent
   ]
 })
 export class ComponentsModule { }

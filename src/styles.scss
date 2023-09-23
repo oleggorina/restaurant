@@ -96,3 +96,16 @@ section {
     padding-bottom: 60px;
   }
 }
+
+input {
+  width: 100%;
+  padding: 0 20px;
+  background: transparent;
+  height: 60px;
+  font-family: $font-main;
+  font-size: $gap;
+  font-weight: 500;
+  &:focus {
+    outline: none;
+  }
+}

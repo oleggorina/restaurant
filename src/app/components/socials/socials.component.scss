@@ -1,0 +1,20 @@
+@import '../../../scss/common';
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: $gap;
+  @include sm {
+    gap: calc($gap / 2);
+  }
+  &__item {
+    cursor: pointer;
+    i {
+      font-size: 25px;
+      color: $color-light;
+      @include sm {
+        font-size: 18px;
+      }
+    }
+  }
+}

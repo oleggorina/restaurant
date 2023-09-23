@@ -1,0 +1,21 @@
+@import '../../../scss/common';
+
+.btn {
+  color: $color-primary;
+  font-family: $font-main;
+  font-size: 22px;
+  font-weight: 500;
+  background-color: $color-light;
+  padding: $gap calc($gap * 2.5);
+  transition: 0.3s ease-in-out;
+
+  @include sm {
+    padding: $gap;
+    font-size: 17px;
+  }
+
+  &:hover {
+    background-color: $color-accent;
+    color: $color-light;
+  }
+}

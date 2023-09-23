@@ -1,0 +1,22 @@
+@import '../../../../scss/common';
+
+.right {
+  display: grid;
+  text-align: end;
+  @include lg {
+    text-align: center;
+  }
+  gap: $gap;
+  &__schedule {
+    display: grid;
+    gap: calc($gap / 2);
+    &-item {
+      p {
+        color: $color-light;
+      }
+      span {
+        color: $color-accent;
+      }
+    }
+  }
+}

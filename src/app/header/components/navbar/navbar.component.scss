@@ -26,23 +26,7 @@
     }
     &__socials {
       grid-area: socials;
-      display: flex;
       justify-self: flex-end;
-      align-items: center;
-      gap: $gap;
-      @include sm {
-        gap: calc($gap / 2);
-      }
-      &-item {
-        cursor: pointer;
-        i {
-          font-size: 25px;
-          color: $color-light;
-          @include sm {
-            font-size: 18px;
-          }
-        }
-      }
     }
   }
 }

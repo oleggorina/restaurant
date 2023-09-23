@@ -1,0 +1,22 @@
+<div class="middle">
+  <div class="middle__text">
+    <span> Join our mailing list for updates,
+      Get news & offers events.</span>
+  </div>
+  <div class="middle__form">
+    <form [formGroup]="newsForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col">
+          <input type="email" placeholder="Email" formControlName="email">
+          <app-validation-message *ngIf="newsForm.get('email')?.hasError('required') && newsForm.get('email')?.touched"
+          [message]="'Email is required !'"></app-validation-message>
+          <app-validation-message *ngIf="newsForm.get('email')?.hasError('email')"
+          [message]="'Invalid email !'"></app-validation-message>
+        </div>
+        <div class="btn">
+          <app-btn-form>Subscribe</app-btn-form>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
