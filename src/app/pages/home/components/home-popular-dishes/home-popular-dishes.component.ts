@@ -16,7 +16,9 @@ export class HomePopularDishesComponent implements OnInit, AfterViewInit, OnDest
   popularDishesData: IPopularDishes[] = [];
   popularDishesSubscription!: Subscription;
 
-  @ViewChildren('dishesItem') dishesItems!: QueryList<ElementRef>
+  @ViewChildren('dishesItem') dishesItems!: QueryList<ElementRef>;
+
+  timeOut: any;
 
   constructor(private popularDishesService: PopularDishesService,
     private changeDetectorRef: ChangeDetectorRef) {}
@@ -30,29 +32,28 @@ export class HomePopularDishesComponent implements OnInit, AfterViewInit, OnDest
 
   ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);
-    setTimeout(() => {
+    this.timeOut = setTimeout(() => {
       this.initAnimation();
     }, 100);
   }
 
   ngOnDestroy(): void {
     if (this.popularDishesSubscription) this.popularDishesSubscription.unsubscribe();
+    clearTimeout(this.timeOut)
   }
   
   initAnimation(): void {
-    this.dishesItems.forEach((item: ElementRef, delay: number) => {
+    this.dishesItems.forEach((item: ElementRef) => {
       const element = item.nativeElement;
-      const animation = gsap.from(element, {
-          opacity: 0,
-          y: 100,
-          delay: delay * 0.5,
-          paused: true
-        })
-        ScrollTrigger.create({
+      gsap.from(element, {
+        opacity: 0,
+        y: 100,
+        scrollTrigger: {
           trigger: element,
           start: 'top 90%',
-          onEnter: () => animation.play(),
-          onLeaveBack: () => animation.reverse()
+          end: 'bottom 70%',
+          scrub: true
+        }
         })
     })
   }

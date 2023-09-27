@@ -19,27 +19,25 @@ export class HomeOfferComponent implements AfterViewInit {
   }
 
   initAnimation(): void {
-    const animationLeft = gsap.from(this.leftCard.nativeElement, {
+    gsap.from(this.leftCard.nativeElement, {
       opacity: 0,
       x: -100,
-      paused: true
+      scrollTrigger: {
+        trigger: this.leftCard.nativeElement,
+        start: 'top 95%',
+        end: 'bottom 75%',
+        scrub: true
+      }
     })
-    ScrollTrigger.create({
-      trigger: this.leftCard.nativeElement,
-      start: 'top 90%',
-      onEnter: () => animationLeft.play(),
-      onLeaveBack: () => animationLeft.reverse()
-    })
-    const animationRight = gsap.from(this.rightCard.nativeElement, {
+    gsap.from(this.rightCard.nativeElement, {
       opacity: 0,
       x: 100,
-      paused: true
-    })
-    ScrollTrigger.create({
-      trigger: this.rightCard.nativeElement,
-      start: 'top 90%',
-      onEnter: () => animationRight.play(),
-      onLeaveBack: () => animationRight.reverse()
+      scrollTrigger: {
+        trigger: this.rightCard.nativeElement,
+        start: 'top 95%',
+        end: 'bottom 75%',
+        scrub: true
+      }
     })
   }
 }

@@ -18,16 +18,15 @@ export class HomeTestimonialsComponent implements AfterViewInit {
   }
 
   initAnimation(): void {
-    const animation = gsap.from(this.carousel.nativeElement, {
+    gsap.from(this.carousel.nativeElement, {
       opacity: 0,
       x: 50,
-      paused: true
-    })
-    ScrollTrigger.create({
-      trigger: this.carousel.nativeElement,
-      start: 'top 90%',
-      onEnter: () => animation.play(),
-      onLeaveBack: () => animation.reverse()
+      scrollTrigger: {
+        trigger: this.carousel.nativeElement,
+        start: 'top 90%',
+        end: 'bottom 70%',
+        scrub: true
+      }
     })
   }
   

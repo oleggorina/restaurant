@@ -22,6 +22,7 @@ export class HomeMenuComponent implements OnInit, AfterViewInit, OnDestroy{
   @ViewChildren('menuItems') menuItems!: QueryList<ElementRef>;
 
   scrollArrivedAtTop: boolean = false;
+  // timeOut!: any;
 
   constructor(private productsService: ProductsService,
     private changeDetectorRef: ChangeDetectorRef) {}
@@ -33,10 +34,15 @@ export class HomeMenuComponent implements OnInit, AfterViewInit, OnDestroy{
   ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);
     this.initAnimation();
+    // this.timeOut = setTimeout(() => {
+    //   this.initAnimation();
+    //   console.log('Animation is active')
+    // }, 100)
   }
 
   ngOnDestroy(): void {
     if (this.menuDataSubscription) this.menuDataSubscription.unsubscribe();
+    // clearTimeout(this.timeOut);
   }
 
   initAnimation(): void {
@@ -58,7 +64,20 @@ export class HomeMenuComponent implements OnInit, AfterViewInit, OnDestroy{
         end: 'bottom 90%',
         scrub: true
       }
-    });
+    })
+    // this.menuItems.forEach((item: ElementRef) => {
+    //   const element = item.nativeElement;
+    //   gsap.from(element, {
+    //     opacity: 0,
+    //     x: 50,
+    //     scrollTrigger: {
+    //       trigger: element,
+    //       start: 'top 90%',
+    //       end: 'bottom 70%',
+    //       scrub: true
+    //     }
+    //   });
+    // })
   }
 
   @HostListener('window:scroll', ['$event'])

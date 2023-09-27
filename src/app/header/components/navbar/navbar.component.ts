@@ -9,7 +9,6 @@ import { gsap } from 'gsap';
 export class NavbarComponent implements OnInit, AfterViewInit {
   width: number = window.innerWidth;
   @ViewChild('links') links!: ElementRef;
-  @ViewChild('socials') socials!: ElementRef;
 
   ngOnInit(): void {
     const mockEvent: any = {
@@ -29,8 +28,8 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   }
 
   initAnimation(): void {
-    gsap.set([this.links.nativeElement, this.socials.nativeElement], {opacity: 0});
-    gsap.to ([this.links.nativeElement, this.socials.nativeElement], {
+    gsap.set(this.links.nativeElement, {opacity: 0});
+    gsap.to (this.links.nativeElement, {
       opacity: 1,
       duration: 1
     });

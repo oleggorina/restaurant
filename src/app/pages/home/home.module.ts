@@ -14,7 +14,6 @@ import { HomePopularDishesComponent } from './components/home-popular-dishes/hom
 import { HomeServicesComponent } from './components/home-services/home-services.component';
 import { HomeBlogComponent } from './components/home-blog/home-blog.component';
 
-
 @NgModule({
   declarations: [
     HomeComponent,
