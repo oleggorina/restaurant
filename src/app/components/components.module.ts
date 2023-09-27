@@ -13,6 +13,7 @@ import { ValidationMessageComponent } from './validation-message/validation-mess
 import { ReactiveFormsModule } from '@angular/forms';
 import { SocialsComponent } from './socials/socials.component';
 import { BtnFormComponent } from './btn-form/btn-form.component';
+import { BannerComponent } from './banner/banner.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { BtnFormComponent } from './btn-form/btn-form.component';
     ReservationComponent,
     ValidationMessageComponent,
     SocialsComponent,
-    BtnFormComponent
+    BtnFormComponent,
+    BannerComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +48,8 @@ import { BtnFormComponent } from './btn-form/btn-form.component';
     ReservationComponent,
     ValidationMessageComponent,
     SocialsComponent,
-    BtnFormComponent
+    BtnFormComponent,
+    BannerComponent
   ]
 })
 export class ComponentsModule { }
