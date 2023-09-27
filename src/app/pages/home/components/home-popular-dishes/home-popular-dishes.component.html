@@ -9,8 +9,8 @@
         <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content making.</p>
       </div>
     </div>
-    <div class="dishes__items">
-      <div class="dishes__items-item" *ngFor="let item of popularDishesData.slice(-4)">
+    <div class="dishes__items" >
+      <div class="dishes__items-item" *ngFor="let item of popularDishesData.slice(-4)" #dishesItem>
         <div class="item">
           <div class="item__image">
             <img src="{{item.image}}" alt="{{item.title}} image">

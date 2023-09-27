@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
@@ -16,25 +16,28 @@ export class HomeAboutComponent implements AfterViewInit {
   
   ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);
-    // this.initAnimation();
+    this.initAnimation();
   }
 
   initAnimation(): void {
-    this.contactItems.forEach((item: ElementRef, index: number) => {
+    this.contactItems.forEach((item: ElementRef) => {
       const element = item.nativeElement.children;
-      gsap.from(element, {
+      const animation = gsap.from(element, {
         opacity: 0,
         y: 50,
         stagger: {
-          amount: 3,
-          from: index * 0.5
+          amount: 1
         },
-        duration: 5,
-        scrollTrigger: {
-          trigger: element,
-          start: 'top 90%',
-          end: 'bottom 70%',
-          scrub: true
+        paused: true
+      })
+      ScrollTrigger.create({
+        trigger: element,
+        start: 'top 90%',
+        onEnter: () => {
+          animation.play()
+        },
+        onLeaveBack: () => {
+          animation.reverse()
         }
       })
     })

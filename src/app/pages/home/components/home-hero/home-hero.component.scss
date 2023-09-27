@@ -4,7 +4,6 @@
   position: relative;
   .container {
     @extend %container;
-    overflow: hidden;
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -94,19 +93,20 @@
         }
         &-secondary {
           position: absolute;
-          width: 300px;
-          height: 300px;
-          top: -2.5%;
-          right: -7%;
+          width: 250px;
+          height: 250px;
+          top: 0;
+          right: 0;
           z-index: 1;
-          animation: rotate 10s infinite linear;
-          @include ul {
+          overflow: hidden;
+          @include sm {
             display: none;
           }
           img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            animation: rotate 10s infinite linear;
           }
           @keyframes rotate {
             from {

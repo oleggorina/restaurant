@@ -17,27 +17,27 @@
         </div>
       </div>
       <div class="menu__dishes" >
+        <div class="title">
+          <h4>Starters</h4>
+        </div>
         <div class="menu__dishes-items">
-          <div class="title">
-            <h4>Starters</h4>
-          </div>
-          <div class="item" *ngFor="let product of menuStarter" #menuItem>
+          <div class="item" *ngFor="let product of menuStarter" #menuItems>
             <app-product-item [title]="product.title" [image]="product.image" [price]="product.price" [subtitle]="product.descr"></app-product-item>
           </div>
         </div>
+        <div class="title">
+          <h4>Main Dish</h4>
+        </div>
         <div class="menu__dishes-items">
-          <div class="title">
-            <h4>Main Dish</h4>
-          </div>
-          <div class="item" *ngFor="let product of menuMainDish" #menuItem>
+          <div class="item" *ngFor="let product of menuMainDish" #menuItems>
             <app-product-item [title]="product.title" [image]="product.image" [price]="product.price" [subtitle]="product.descr"></app-product-item>
           </div>
         </div>
+        <div class="title">
+          <h4>Dessert</h4>
+        </div>
         <div class="menu__dishes-items">
-          <div class="title">
-            <h4>Dessert</h4>
-          </div>
-          <div class="item" *ngFor="let product of menuDessert" #menuItem>
+          <div class="item" *ngFor="let product of menuDessert" #menuItems>
             <app-product-item [title]="product.title" [image]="product.image" [price]="product.price" [subtitle]="product.descr"></app-product-item>
           </div>
         </div>

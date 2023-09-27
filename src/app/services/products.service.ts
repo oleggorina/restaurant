@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, combineLatest, forkJoin, map, Observable, switchMap, tap } from 'rxjs';
 import { IProduct } from '../interface/interface';
 
 @Injectable({
@@ -11,8 +11,16 @@ export class ProductsService {
   
   constructor(private http: HttpClient) { }
 
-  getProducts(type: string) {
-    return this.http.get<IProduct[]>(`${this.url}/${type}.json`)
+  // getProducts(type: string) {
+  //   return this.http.get<IProduct[]>(`${this.url}/${type}.json`)
+  // }
+
+  getHomeMenu(): Observable<[IProduct[], IProduct[], IProduct[]]> {
+    const starters$ = this.http.get<IProduct[]>(`${this.url}/starters.json`);
+    const mainDish$ = this.http.get<IProduct[]>(`${this.url}/mainDish.json`);
+    const dessert$ = this.http.get<IProduct[]>(`${this.url}/dessert.json`);
+
+    return combineLatest([starters$, mainDish$, dessert$])
   }
   
 }

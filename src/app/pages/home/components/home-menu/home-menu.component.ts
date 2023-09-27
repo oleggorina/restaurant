@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IProduct } from 'src/app/interface/interface';
 import { ProductsService } from 'src/app/services/products.service';
@@ -19,23 +19,20 @@ export class HomeMenuComponent implements OnInit, AfterViewInit, OnDestroy{
 
   @ViewChild('contentTitle') contentTitle!: ElementRef;
   @ViewChild('contentImage') contentImage!: ElementRef;
-  @ViewChildren('menuItem', {read: ElementRef}) menuItems!: QueryList<ElementRef>;
-  
+  @ViewChildren('menuItems') menuItems!: QueryList<ElementRef>;
+
+  scrollArrivedAtTop: boolean = false;
+
   constructor(private productsService: ProductsService,
     private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.getMenuData('starters', this.menuStarter);
-    this.getMenuData('mainDish', this.menuMainDish);
-    this.getMenuData('dessert', this.menuDessert);
+    this.getMenuData();
   }
 
   ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);
-    // setTimeout(() => {
-    //   console.log('AfterViewInit executed')
-    //   this.initAnimation();
-    // }, 100)
+    this.initAnimation();
   }
 
   ngOnDestroy(): void {
@@ -62,28 +59,38 @@ export class HomeMenuComponent implements OnInit, AfterViewInit, OnDestroy{
         scrub: true
       }
     });
-    this.menuItems.forEach((item: ElementRef, index: number) => {
-      const element: HTMLElement = item.nativeElement;
-      gsap.from(element, {
-        opacity: 0,
-        x: 50,
-        stagger: {
-          amount: 12,
-          from: index * 0.5
-        },
-        scrollTrigger: {
-          trigger: element,
-          start: 'top 90%',
-          end: 'bottom 90%',
-          scrub: true
-        }
-      })
-    })
   }
 
-  private getMenuData(type: string, menuArray: IProduct[]): void {
-    this.menuDataSubscription = this.productsService.getProducts(type).subscribe((data) => {
-      menuArray.push(...data);
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event) {
+    if (!this.scrollArrivedAtTop) {
+      this.menuItems.forEach((item: ElementRef) => {
+        const element = item.nativeElement;
+        const scrollPosition = window.scrollY - element.getBoundingClientRect().top;
+        const gap = 100;
+        if (scrollPosition <= gap) {
+          this.scrollArrivedAtTop = true;
+          gsap.from(element, {
+            opacity: 0,
+            x: 50,
+            scrollTrigger: {
+              trigger: element,
+              start: 'top 90%',
+              end: 'bottom 70%',
+              scrub: true
+            }
+          });
+          window.removeEventListener('scroll', this.onScroll);
+        }
+      })
+    }
+  }
+
+  private getMenuData(): void {
+    this.menuDataSubscription = this.productsService.getHomeMenu().subscribe(([starters, mainDish, dessert]) => {
+      this.menuStarter = starters;
+      this.menuMainDish = mainDish;
+      this.menuDessert = dessert;
       this.changeDetectorRef.detectChanges();
     })
   }
