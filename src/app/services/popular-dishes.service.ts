@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { IPopularDishes } from '../interface/interface';
 
 @Injectable({
@@ -11,7 +12,7 @@ export class PopularDishesService {
 
   constructor(private http: HttpClient) { }
 
-  getPopularDishes() {
+  getPopularDishes(): Observable<IPopularDishes[]> {
     return this.http.get<IPopularDishes[]>(`${this.url}.json`);
   }
 }

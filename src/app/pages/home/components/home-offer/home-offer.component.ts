@@ -1,6 +1,7 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { AnimationService } from 'src/app/services/animation.service';
 
 @Component({
   selector: 'app-home-offer',
@@ -10,34 +11,17 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 })
 export class HomeOfferComponent implements AfterViewInit {
   
-  @ViewChild('leftCard') leftCard!: ElementRef
-  @ViewChild('rightCard') rightCard!: ElementRef
+  @ViewChild('leftCard') leftCard!: ElementRef;
+  @ViewChild('rightCard') rightCard!: ElementRef;
+
+  constructor(private animationService: AnimationService) {}
 
   ngAfterViewInit(): void {
-    gsap.registerPlugin(ScrollTrigger)
-    this.initAnimation()
+    this.initAnimation();
   }
 
   initAnimation(): void {
-    gsap.from(this.leftCard.nativeElement, {
-      opacity: 0,
-      x: -100,
-      scrollTrigger: {
-        trigger: this.leftCard.nativeElement,
-        start: 'top 95%',
-        end: 'bottom 75%',
-        scrub: true
-      }
-    })
-    gsap.from(this.rightCard.nativeElement, {
-      opacity: 0,
-      x: 100,
-      scrollTrigger: {
-        trigger: this.rightCard.nativeElement,
-        start: 'top 95%',
-        end: 'bottom 75%',
-        scrub: true
-      }
-    })
+    this.animationService.animateFadeInFromLeft(this.leftCard.nativeElement);
+    this.animationService.animateFadeInFromRight(this.rightCard.nativeElement);
   }
 }

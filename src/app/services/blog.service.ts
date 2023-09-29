@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ICardBlog } from '../interface/interface';
 
 @Injectable({
@@ -11,7 +12,7 @@ export class BlogService {
 
   constructor(private http: HttpClient) { }
 
-  getArticles() {
+  getArticles(): Observable<ICardBlog[]> {
     return this.http.get<ICardBlog[]>(`${this.url}.json`);
   }
 }

@@ -1,0 +1,24 @@
+@import '../../../scss/common';
+
+.section {
+  position: relative;
+  .container {
+    @extend %container;
+    .banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &__title {
+        border-top: 1px solid $color-accent;
+        border-bottom: 1px solid $color-accent;
+        h2 {
+          color: $color-light;
+        }
+      }
+    }
+  }
+  .wrapper {
+    @extend %wrapper;
+    background-color: $color-primary;
+  }
+}

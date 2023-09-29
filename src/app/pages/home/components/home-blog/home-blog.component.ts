@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { ICardBlog } from 'src/app/interface/interface';
 import { BlogService } from 'src/app/services/blog.service';
 import { gsap } from 'gsap';
+import { AnimationService } from 'src/app/services/animation.service';
 
 @Component({
   selector: 'app-home-blog',
@@ -11,49 +12,33 @@ import { gsap } from 'gsap';
   styleUrls: ['./home-blog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeBlogComponent implements OnInit, AfterViewInit, OnDestroy {
+export class HomeBlogComponent implements OnInit, OnDestroy {
 
   articles: ICardBlog[] = [];
   articlesSubscription!: Subscription;
 
   @ViewChildren('blogItems') blogItems!: QueryList<ElementRef>;
-  timeOut: any;
 
   constructor(private blogService: BlogService,
-    private changeDetectorRef: ChangeDetectorRef) {}
+    private changeDetectorRef: ChangeDetectorRef,
+    private animationService: AnimationService) {}
 
   ngOnInit(): void {
     this.articlesSubscription = this.blogService.getArticles().subscribe(data => {
       this.articles = data;
       this.changeDetectorRef.detectChanges();
-    })
-  }
-
-  ngAfterViewInit(): void {
-    this.timeOut = setTimeout(() => {
       this.initAnimation();
-    }, 100);
+    })
   }
 
   ngOnDestroy(): void {
     if (this.articlesSubscription) this.articlesSubscription.unsubscribe();
-    clearTimeout(this.timeOut);
   }
   
   initAnimation(): void {
-    gsap.registerPlugin(ScrollTrigger);
-    this.blogItems.forEach((item: ElementRef) => {
+    this.blogItems.forEach((item) => {
       const element = item.nativeElement;
-      gsap.from(element, {
-        opacity: 0,
-        y: 100,
-        scrollTrigger: {
-          trigger: element,
-          start: 'top 90%',
-          end: 'bottom 70%',
-          scrub: true
-        }
-      })
+      this.animationService.animateFadeInFromBottom(element);
     })
   }
 }

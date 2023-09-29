@@ -1,0 +1,50 @@
+<div class="container">
+  <section class="about">
+    <div class="about__content" #content>
+      <div class="about__content-text">
+        <app-subtitle [text]="'about us'"></app-subtitle>
+        <h4>Quality and  Tradition</h4>
+        <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content gfshere making look like readable English. Many desktop publishing packages.</p>
+      </div>
+      <div class="about__content-sign">
+        <span>JOSEFINE</span>
+        <img src="../../../../../assets/images/home/about/sign.png" alt="Sign">
+      </div>
+      <div class="about__content-btn">
+        <app-btn-primary [btnText]="'See More'" [textColor]="'accent'"></app-btn-primary>
+      </div>
+    </div>
+    <div class="about__image">
+      <div class="about__image-main" #image>
+        <img class="main" src="../../../../../assets/images/about/aboutUs/about.jpg" alt="About image">
+      </div>
+      <div class="about__image-secondary" #image>
+        <img class="secondary" src="../../../../../assets/images/about/aboutUs/pattern.png" alt="Pattern image">
+      </div>
+      <div class="about__image-card" #card>
+        <div class="card">
+          <div class="card__title">
+            <div class="card__title-img">
+              <img src="../../../../../assets/images/about/aboutUs/author.jpg" alt="Author">
+            </div>
+            <div class="card__title-name">
+              <h5>Josefine</h5>
+              <span>CEO & Founder</span>
+            </div>
+          </div>
+          <div class="card__text">
+            <p>Capitalize on low hanging fruit
+              to identify a ballpark</p>
+          </div>
+          <div class="card__stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

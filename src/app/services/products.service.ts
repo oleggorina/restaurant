@@ -15,12 +15,15 @@ export class ProductsService {
   //   return this.http.get<IProduct[]>(`${this.url}/${type}.json`)
   // }
 
-  getHomeMenu(): Observable<[IProduct[], IProduct[], IProduct[]]> {
-    const starters$ = this.http.get<IProduct[]>(`${this.url}/starters.json`);
-    const mainDish$ = this.http.get<IProduct[]>(`${this.url}/mainDish.json`);
-    const dessert$ = this.http.get<IProduct[]>(`${this.url}/dessert.json`);
-
-    return combineLatest([starters$, mainDish$, dessert$])
+  getStarterMenu(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(`${this.url}/starters.json`);
   }
-  
+
+  getMainMenu(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(`${this.url}/mainDish.json`);
+  }
+
+  getDessertMenu(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(`${this.url}/dessert.json`);
+  }
 }

@@ -1,6 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import { gsap } from 'gsap';
+import { AnimationService } from 'src/app/services/animation.service';
 
 @Component({
   selector: 'app-home-services',
@@ -11,25 +10,16 @@ import { gsap } from 'gsap';
 export class HomeServicesComponent implements AfterViewInit {
   
   @ViewChildren('servicesIcons') servicesIcons!: QueryList<ElementRef>
-  
+  constructor(private animationService: AnimationService) {}
+
   ngAfterViewInit(): void {
-    gsap.registerPlugin(ScrollTrigger);
     this.initAnimation();
   }
 
   initAnimation(): void {
     this.servicesIcons.forEach((item: ElementRef) => {
       const element = item.nativeElement;
-      gsap.from(element, {
-        opacity: 0,
-        x: 50,
-        scrollTrigger: {
-          trigger: element,
-          start: 'top 90%',
-          end: 'bottom 70%',
-          scrub: true
-        }
-      })
+      this.animationService.animateFadeInFromRight(element);
     })
   }
 }

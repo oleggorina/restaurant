@@ -1,5 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
 import { gsap } from 'gsap';
+import { AnimationService } from 'src/app/services/animation.service';
 
 @Component({
   selector: 'app-home-hero',
@@ -12,28 +13,17 @@ export class HomeHeroComponent implements AfterViewInit {
   @ViewChild('subTitle') subTitle!: ElementRef;
   @ViewChild('menuBtn') menuBtn!: ElementRef;
   @ViewChild('image') image!: ElementRef;
+
+  constructor(private animationService: AnimationService) {}
   
   ngAfterViewInit(): void {
     this.initAnimation();
   }
 
   initAnimation(): void {
-    gsap.from(this.title.nativeElement, {
-      opacity: 0,
-      y: -20,
-      duration: 1
-    });
-    gsap.from(this.subTitle.nativeElement, {
-      opacity: 0,
-      y: -20,
-      duration: 1,
-      delay: 0.3
-    });
-    gsap.from([this.menuBtn.nativeElement, this.image.nativeElement], {
-      opacity: 0,
-      y: -20,
-      duration: 1,
-      delay: 0.6
-    });
+    this.animationService.animateFadeInFromBottom(this.title.nativeElement);
+    this.animationService.animateFadeInFromBottom(this.subTitle.nativeElement, 0.1);
+    this.animationService.animateFadeInFromBottom(this.menuBtn.nativeElement, 0.2);
+    this.animationService.animateFadeInFromBottom(this.image.nativeElement, 0.3)
   }
 }
