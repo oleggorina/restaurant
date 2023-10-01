@@ -27,3 +27,9 @@ export interface ICardBlog {
   date: string;
   type: string;
 }
+
+export interface ITeamCard {
+  name: string;
+  job: string;
+  image: string;
+}

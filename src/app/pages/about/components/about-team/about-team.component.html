@@ -1,0 +1,27 @@
+<div class="container">
+  <section class="team">
+    <div class="team__title">
+      <div class="team__title-subtitle">
+        <app-subtitle [text]="'team'"></app-subtitle>
+      </div>
+      <div class="team__title-title">
+        <h4>Meet Our Professional Chefs</h4>
+      </div>
+    </div>
+    <div class="team__items">
+      <div class="item" *ngFor="let item of teamData">
+        <div class="item__image">
+          <img src="{{item.image}}" alt="">
+        </div>
+        <div class="item__content">
+          <div class="item__content-name">
+            <h5>{{item.name}}</h5>
+          </div>
+          <div class="item__content-job">
+            <span>{{item.job}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

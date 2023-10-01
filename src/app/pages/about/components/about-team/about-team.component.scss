@@ -1,0 +1,50 @@
+@import '../../../../../scss/common';
+
+.container {
+  @extend %container;
+  .team {
+    display: flex;
+    flex-direction: column;
+    gap: calc($gap * 2);
+    &__title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    &__items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: $gap;
+      @include ul {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include md {
+        grid-template-columns: 1fr;
+      }
+      .item {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr max-content;
+        gap: $gap;
+        &__image {
+          background-color: #A0AEAF;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        &__content {
+          justify-self: center;
+          text-align: center;
+          &-job {
+            span {
+              color: $color-gray;
+            }
+          }
+        }
+      }
+    }
+  }
+}
