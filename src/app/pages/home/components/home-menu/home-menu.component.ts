@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { forkJoin, Subscription } from 'rxjs';
 import { IProduct } from 'src/app/interface/interface';
 import { ProductsService } from 'src/app/services/products.service';
@@ -36,12 +36,13 @@ export class HomeMenuComponent implements OnInit, OnDestroy {
       this.menuMainDish = mainDish;
       this.menuDessert = dessert;
       this.changeDetectorRef.detectChanges();
-      this.initAnimation();
+      // this.initAnimation();
     })
   }
 
   ngOnDestroy(): void {
     if (this.menuDataSubscription) this.menuDataSubscription.unsubscribe();
+    this.animationService.cleanUpAnimations();
   }
 
   initAnimation(): void {
@@ -49,7 +50,7 @@ export class HomeMenuComponent implements OnInit, OnDestroy {
     this.animationService.animateFadeIn(this.contentTitle.nativeElement);
     this.menuItems.forEach((item) => {
       const element = item.nativeElement;
-      this.animationService.animateFadeInFromRight(element, 4);
+      this.animationService.animateFadeInFromRight(element);
     })
   }
 }

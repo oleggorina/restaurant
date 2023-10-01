@@ -8,6 +8,10 @@ import { ComponentsModule } from './components/components.module';
 import { HeaderModule } from './header/header.module';
 import { FooterModule } from './footer/footer.module';
 import { PagesModule } from './pages/pages.module';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @NgModule({
   declarations: [

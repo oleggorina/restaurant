@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Subscription } from 'rxjs';
@@ -24,15 +24,17 @@ export class HomePopularDishesComponent implements OnInit, OnDestroy {
     private animationService: AnimationService) {}
 
   ngOnInit(): void {
+    gsap.registerPlugin(ScrollTrigger);
     this.popularDishesSubscription = this.popularDishesService.getPopularDishes().subscribe(data => {
       this.popularDishesData = data;
       this.changeDetectorRef.detectChanges();
-      this.initAnimation();
+      // this.initAnimation();
     })
   }
 
   ngOnDestroy(): void {
     if (this.popularDishesSubscription) this.popularDishesSubscription.unsubscribe();
+    this.animationService.cleanUpAnimations();
   }
   
   initAnimation(): void {

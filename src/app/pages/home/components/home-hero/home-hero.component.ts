@@ -1,14 +1,15 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { gsap } from 'gsap';
 import { AnimationService } from 'src/app/services/animation.service';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-home-hero',
   templateUrl: './home-hero.component.html',
   styleUrls: ['./home-hero.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeHeroComponent implements AfterViewInit {
+export class HomeHeroComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('title') title!: ElementRef;
   @ViewChild('subTitle') subTitle!: ElementRef;
   @ViewChild('menuBtn') menuBtn!: ElementRef;
@@ -16,8 +17,16 @@ export class HomeHeroComponent implements AfterViewInit {
 
   constructor(private animationService: AnimationService) {}
   
+  ngOnInit(): void {
+    gsap.registerPlugin(ScrollTrigger);
+  }
+  
   ngAfterViewInit(): void {
-    this.initAnimation();
+    // this.initAnimation();
+  }
+
+  ngOnDestroy(): void {
+    this.animationService.cleanUpAnimations();
   }
 
   initAnimation(): void {

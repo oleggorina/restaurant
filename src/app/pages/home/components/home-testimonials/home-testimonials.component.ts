@@ -1,7 +1,7 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewChild} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import { AnimationService } from 'src/app/services/animation.service';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { AnimationService } from 'src/app/services/animation.service';
 
 @Component({
   selector: 'app-home-testimonials',
@@ -9,18 +9,25 @@ import { AnimationService } from 'src/app/services/animation.service';
   styleUrls: ['./home-testimonials.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeTestimonialsComponent implements AfterViewInit {
-  
-  @ViewChild('carousel') carousel!: ElementRef;
+export class HomeTestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  constructor(private animationSerivce: AnimationService) {}
+  @ViewChild('testimonial') testimonial!: ElementRef;
+
+  constructor(private animationService: AnimationService) {}
+
+  ngOnInit(): void {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
   ngAfterViewInit(): void {
-    this.initAnimation()
+    // this.initAnimation();
+  }
+
+  ngOnDestroy(): void {
+    this.animationService.cleanUpAnimations();
   }
 
   initAnimation(): void {
-    this.animationSerivce.animateFadeInFromRight(this.carousel.nativeElement);
+    this.animationService.animateFadeInFromRight(this.testimonial.nativeElement)
   }
-  
 }

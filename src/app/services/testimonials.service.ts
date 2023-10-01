@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ITestimonialCard } from '../interface/interface';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class TestimonialsService {
   
   constructor(private http: HttpClient) { }
 
-  getTestimonials() {
+  getTestimonials(): Observable<ITestimonialCard[]> {
     return this.http.get<ITestimonialCard[]>(`${this.url}.json`);
   }
 }

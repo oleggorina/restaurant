@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostListener, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { AnimationService } from 'src/app/services/animation.service';
@@ -9,7 +9,7 @@ import { AnimationService } from 'src/app/services/animation.service';
   styleUrls: ['./home-about.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeAboutComponent implements AfterViewInit {
+export class HomeAboutComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChildren('contactItems', {read: ElementRef}) contactItems!: QueryList<ElementRef>;
   @ViewChildren('years') years!: QueryList<ElementRef>;
   @ViewChild('storyImage') storyImage!: ElementRef;
@@ -17,8 +17,16 @@ export class HomeAboutComponent implements AfterViewInit {
 
   constructor(private animationService: AnimationService) {}
   
+  ngOnInit(): void {
+    gsap.registerPlugin(ScrollTrigger);
+  }
+  
   ngAfterViewInit(): void {
-    this.initAnimation();
+    // this.initAnimation();
+  }
+
+  ngOnDestroy(): void {
+    this.animationService.cleanUpAnimations();
   }
 
   initAnimation(): void {

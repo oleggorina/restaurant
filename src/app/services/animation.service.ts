@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ElementRef, Injectable } from '@angular/core';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
@@ -7,29 +7,32 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 })
 export class AnimationService {
 
+  private fadeIn!: gsap.core.Tween;
+  private fadeInFromTop!: gsap.core.Tween;
+  private fadeInFromRight!: gsap.core.Tween;
+  private fadeInFromLeft!: gsap.core.Tween;
+  private fadeInFromBottom!: gsap.core.Tween;
+
   constructor() {
     gsap.registerPlugin(ScrollTrigger)
    }
 
   animateFadeIn(element: HTMLElement): void {
-    gsap.from(element, {
+    this.fadeIn = gsap.from(element, {
       opacity: 0,
       scrollTrigger: {
         trigger: element,
         start: 'top 90%',
-        end: 'bottom 70%',
-        scrub: true
+        onEnter: () => {this.fadeIn.play()},
+        onLeaveBack: () => {this.fadeIn.reverse()}
       }
     })
   }
 
-  animateFadeInFromRight(element: HTMLElement, stagger: number = 0): void {
-    gsap.from(element, {
+  animateFadeInFromRight(element: HTMLElement): void {
+    this.fadeInFromRight = gsap.from(element, {
       opacity: 0,
       x: 20,
-      stagger: {
-        amount: stagger
-      },
       scrollTrigger: {
         trigger: element,
         start: 'top 90%',
@@ -38,13 +41,10 @@ export class AnimationService {
       }
     })
   }
-  animateFadeInFromLeft(element: HTMLElement, stagger: number = 0): void {
-    gsap.from(element, {
+  animateFadeInFromLeft(element: HTMLElement): void {
+    this.fadeInFromLeft = gsap.from(element, {
       opacity: 0,
       x: -20,
-      stagger: {
-        amount: stagger
-      },
       scrollTrigger: {
         trigger: element,
         start: 'top 90%',
@@ -54,35 +54,37 @@ export class AnimationService {
     })
   }
 
-  animateFadeInFromTop(element: HTMLElement, stagger: number = 0): void {
-    const animation = gsap.from(element, {
+  animateFadeInFromTop(element: HTMLElement): void {
+    this.fadeInFromTop = gsap.from(element, {
       opacity: 0,
       y: 50,
-      stagger: {
-        amount: stagger
-      },
       scrollTrigger: {
         trigger: element,
         start: 'top 90%',
-        onEnter: () => {animation.play()},
-        onLeaveBack: () => {animation.reverse()}
+        onEnter: () => {this.fadeInFromTop.play()},
+        onLeaveBack: () => {this.fadeInFromTop.reverse()}
       }
     })
   }
-  animateFadeInFromBottom(element: HTMLElement, delay: number = 0, stagger: number = 0): void {
-    const animation = gsap.from(element, {
+  animateFadeInFromBottom(element: HTMLElement, delay: number = 0): void {
+    this.fadeInFromBottom = gsap.from(element, {
       opacity: 0,
       y: -50,
       delay: delay,
-      stagger: {
-        amount: stagger
-      },
       scrollTrigger: {
         trigger: element,
         start: 'top 90%',
-        onEnter: () => {animation.play()},
-        onLeaveBack: () => {animation.reverse()}
+        onEnter: () => {this.fadeInFromBottom.play()},
+        onLeaveBack: () => {this.fadeInFromBottom.reverse()}
       }
     })
+  }
+
+  cleanUpAnimations(): void {
+    if (this.fadeIn) this.fadeIn.kill();
+    if (this.fadeInFromTop) this.fadeInFromTop.kill();
+    if (this.fadeInFromRight) this.fadeInFromRight.kill();
+    if (this.fadeInFromBottom) this.fadeInFromBottom.kill();
+    if (this.fadeInFromLeft) this.fadeInFromLeft.kill();
   }
 }

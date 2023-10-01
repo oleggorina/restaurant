@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Subscription } from 'rxjs';
 import { ICardBlog } from 'src/app/interface/interface';
@@ -24,15 +24,17 @@ export class HomeBlogComponent implements OnInit, OnDestroy {
     private animationService: AnimationService) {}
 
   ngOnInit(): void {
+    gsap.registerPlugin(ScrollTrigger);
     this.articlesSubscription = this.blogService.getArticles().subscribe(data => {
       this.articles = data;
       this.changeDetectorRef.detectChanges();
-      this.initAnimation();
+      // this.initAnimation();
     })
   }
 
   ngOnDestroy(): void {
     if (this.articlesSubscription) this.articlesSubscription.unsubscribe();
+    this.animationService.cleanUpAnimations();
   }
   
   initAnimation(): void {

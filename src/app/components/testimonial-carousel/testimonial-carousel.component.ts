@@ -1,6 +1,8 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ITestimonialCard } from 'src/app/interface/interface';
+import { AnimationService } from 'src/app/services/animation.service';
+import { CarouselService } from 'src/app/services/carousel.service';
 import { TestimonialsService } from 'src/app/services/testimonials.service';
 
 @Component({

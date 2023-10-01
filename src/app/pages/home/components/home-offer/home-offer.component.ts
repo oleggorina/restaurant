@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { AnimationService } from 'src/app/services/animation.service';
@@ -9,16 +9,21 @@ import { AnimationService } from 'src/app/services/animation.service';
   styleUrls: ['./home-offer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeOfferComponent implements AfterViewInit {
+export class HomeOfferComponent implements AfterViewInit, OnDestroy {
   
   @ViewChild('leftCard') leftCard!: ElementRef;
   @ViewChild('rightCard') rightCard!: ElementRef;
 
   constructor(private animationService: AnimationService) {}
-
+  
   ngAfterViewInit(): void {
-    this.initAnimation();
+    // this.initAnimation();
   }
+
+  ngOnDestroy(): void {
+    this.animationService.cleanUpAnimations();
+  }
+  
 
   initAnimation(): void {
     this.animationService.animateFadeInFromLeft(this.leftCard.nativeElement);

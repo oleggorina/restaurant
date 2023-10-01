@@ -1,0 +1,67 @@
+@import "../../../../../scss/common";
+
+.section {
+  position: relative;
+  .container {
+    @extend %container;
+    .counts {
+      display: grid;
+      grid-template-columns: repeat(7, max-content);
+      grid-template-rows: 1fr;
+      justify-content: space-between;
+      @include ul {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: calc($gap * 2);
+      }
+      @include lg {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-self: center;
+        gap: $gap;
+        max-width: 280px;
+        align-self: center;
+        &-title {
+          h5 {
+            color: $color-light;
+          }
+        }
+        &-text {
+          p {
+            color: $color-light;
+            line-height: 146%;
+          }
+        }
+        &-link {
+          a {
+            color: $color-accent;
+            cursor: pointer;
+          }
+        }
+      }
+      &__line {
+        width: 1px;
+        height: 120%;
+        background-color: $color-gray;
+        align-self: center;
+        @include ul {
+          display: none;
+        }
+      }
+    }
+  }
+  .wrapper {
+    @extend %wrapper;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
