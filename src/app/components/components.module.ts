@@ -5,7 +5,6 @@ import { BtnAccentComponent } from './btn-accent/btn-accent.component';
 import { BurgerComponent } from './burger/burger.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { SubtitleComponent } from './subtitle/subtitle.component';
-import { TestimonialCarouselComponent } from './testimonial-carousel/testimonial-carousel.component';
 import { TestimonialCardComponent } from './testimonial-card/testimonial-card.component';
 import { CardBlogComponent } from './card-blog/card-blog.component';
 import { ReservationComponent } from './reservation/reservation.component';
@@ -23,7 +22,6 @@ import { BannerComponent } from './banner/banner.component';
     BurgerComponent,
     ProductItemComponent,
     SubtitleComponent,
-    TestimonialCarouselComponent,
     TestimonialCardComponent,
     CardBlogComponent,
     ReservationComponent,
@@ -42,7 +40,6 @@ import { BannerComponent } from './banner/banner.component';
     BurgerComponent,
     ProductItemComponent,
     SubtitleComponent,
-    TestimonialCarouselComponent,
     TestimonialCardComponent,
     CardBlogComponent,
     ReservationComponent,

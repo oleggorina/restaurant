@@ -6,6 +6,7 @@
   grid-template-rows: max-content max-content;
   padding: calc($gap * 2);
   background-color: $color-card;
+  width: 100%;
   &__user {
     display: flex;
     gap: $gap;

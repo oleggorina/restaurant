@@ -12,6 +12,7 @@ import { HomeOfferComponent } from './components/home-offer/home-offer.component
 import { HomePopularDishesComponent } from './components/home-popular-dishes/home-popular-dishes.component';
 import { HomeServicesComponent } from './components/home-services/home-services.component';
 import { HomeBlogComponent } from './components/home-blog/home-blog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HomeBlogComponent } from './components/home-blog/home-blog.component';
   ],
   imports: [
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
+    FormsModule
   ]
 })
 export class HomeModule { }

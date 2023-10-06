@@ -6,8 +6,27 @@
         <h4>What our clients say</h4>
         <p>We love to hear from customers, so please leave a comment or say hello in an email.</p>
       </div>
-      <div class="testimonials__carousel" #testimonial>
-        <app-testimonial-carousel></app-testimonial-carousel>
+      <div class="testimonials__carousel">
+        <div class="carousel" #container>
+          <div class="carousel__items" #testimonialCarousel>
+            <div class="carousel__items-item" #testimonialItem *ngFor="let data of testimonialData"
+            [style.width]="cardWidthValue">
+              <app-testimonial-card
+                [name]="data.name"
+                [city]="data.city"
+                [image]="data.image"
+                [testimonial]="data.testimonial"
+                [isCard]="true">
+              </app-testimonial-card>
+            </div>
+          </div>
+        </div>
+         <div class="indicators">
+          <div class="indicators__item" 
+          *ngFor="let item of slideIndicators; let i = index" 
+          (click)="goToSlide(i)" [ngClass]="{'active' : i === currentIndex}">
+        </div>
+        </div>
       </div>
     </section>
   </div>
