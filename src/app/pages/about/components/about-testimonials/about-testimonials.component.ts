@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ITestimonialCard } from 'src/app/interface/interface';
 import { TestimonialsService } from 'src/app/services/testimonials.service';
@@ -9,7 +9,7 @@ import { TestimonialsService } from 'src/app/services/testimonials.service';
   styleUrls: ['./about-testimonials.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AboutTestimonialsComponent implements OnInit {
+export class AboutTestimonialsComponent implements OnInit, OnDestroy {
   testimonialData: ITestimonialCard[] = [];
   testimonialSubscription!: Subscription;
 
@@ -21,5 +21,9 @@ export class AboutTestimonialsComponent implements OnInit {
       this.testimonialData = data;
       this.changeDetectionRef.detectChanges();
     })
+  }
+
+  ngOnDestroy(): void {
+    if (this.testimonialSubscription) this.testimonialSubscription.unsubscribe();
   }
 }

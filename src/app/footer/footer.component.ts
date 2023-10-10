@@ -13,7 +13,7 @@ export class FooterComponent implements AfterViewInit {
   @ViewChild('bottomSide') bottomSide!: ElementRef;
   
   ngAfterViewInit(): void {
-    this.initAnimation();
+    // this.initAnimation();
   }
 
   initAnimation(): void {

@@ -1,0 +1,22 @@
+<div class="container">
+  <section class="dish">
+    <div class="dish__menu">
+      <div class="dish__menu-title">
+        <h4>Main Dish</h4>
+      </div>
+      <div class="dish__menu-item" *ngFor="let product of mainDishData">
+        <app-product-item
+        [title]="product.title"
+        [image]="product.image"
+        [subtitle]="product.descr"
+        [price]="product.price"></app-product-item>
+      </div>
+      <div class="dish__menu-btn">
+        <app-btn-primary [btnText]="'Order Now'" [textColor]="'accent'"></app-btn-primary>
+      </div>
+    </div>
+    <div class="dish__image">
+      <img src="../../../../../assets/images/menu/main dish/dishimage.png" alt="Image">
+    </div>
+  </section>
+</div>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
+import { MenuModule } from './menu/menu.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { AboutModule } from './about/about.module';
     CommonModule,
     PagesRoutingModule,
     HomeModule,
-    AboutModule
+    AboutModule,
+    MenuModule
   ]
 })
 export class PagesModule { }

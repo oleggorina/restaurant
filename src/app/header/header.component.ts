@@ -12,7 +12,7 @@ export class HeaderComponent implements AfterViewInit {
   @ViewChild('reservationBtn') reservationBtn!: ElementRef;
   
   ngAfterViewInit(): void {
-    this.initAnimation();
+    // this.initAnimation();
   }
 
   initAnimation(): void {

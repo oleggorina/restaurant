@@ -1,0 +1,22 @@
+<div class="container">
+  <section class="starters">
+    <div class="starters__image">
+      <img src="../../../../../assets/images/menu/starters/imagestarters.png" alt="Image starters">
+    </div>
+    <div class="starters__menu">
+      <div class="starters__menu-title">
+        <h4>Starters</h4>
+      </div>
+      <div class="starters__menu-item" *ngFor="let product of menuStarter">
+        <app-product-item
+        [image]="product.image"
+        [title]="product.title"
+        [subtitle]="product.descr"
+        [price]="product.price"></app-product-item>
+      </div>
+      <div class="starters__menu-btn">
+        <app-btn-primary [btnText]="'Order Now'" [textColor]="'accent'"></app-btn-primary>
+      </div>
+    </div>
+  </section>
+</div>
