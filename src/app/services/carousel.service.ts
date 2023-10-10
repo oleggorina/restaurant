@@ -16,13 +16,11 @@ export class CarouselService {
         fromEvent<MouseEvent>(carousel, 'mouseup')
       )
     )).subscribe(direction => {
+      console.log('Carousel init into service')
       if (direction < 100 && direction != 0) {
-        console.log(direction)
         goNext();
         
       } else if (direction > 100 && direction != 0) {
-        console.log(direction)
-        console.log('swipe right')
         goPrev();
       }
     })
@@ -35,7 +33,7 @@ export class CarouselService {
     }
   }
 
-  goPrev(carousel: HTMLElement, carouselItem: HTMLElement, cardsPerSlide: number, currentIndex: number, totalSlides: number, renderer: Renderer2): void {
+  goPrev(carousel: HTMLElement, carouselItem: HTMLElement, cardsPerSlide: number, currentIndex: number, renderer: Renderer2): void {
     const prevIndex = currentIndex - 1;
     if (prevIndex >= 0) {
       this.goToSlide(carousel, carouselItem, cardsPerSlide, prevIndex, renderer);

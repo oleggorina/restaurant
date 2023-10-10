@@ -74,7 +74,6 @@ export class HomeTestimonialsComponent implements OnInit, AfterViewInit, OnDestr
       this.testimonialItem.nativeElement,
       this.cardsPerSlide,
       this.currentIndex,
-      this.totalSlides,
       this.renderer);
     if (this.currentIndex > 0) this.currentIndex--;
     console.log(this.currentIndex)

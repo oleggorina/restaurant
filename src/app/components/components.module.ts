@@ -13,7 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SocialsComponent } from './socials/socials.component';
 import { BtnFormComponent } from './btn-form/btn-form.component';
 import { BannerComponent } from './banner/banner.component';
-
+import { TestimonialCarouselComponent } from './testimonial-carousel/testimonial-carousel.component';
+import { TestimonialItemComponent } from './testimonial-item/testimonial-item.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { BannerComponent } from './banner/banner.component';
     ValidationMessageComponent,
     SocialsComponent,
     BtnFormComponent,
-    BannerComponent
+    BannerComponent,
+    TestimonialCarouselComponent,
+    TestimonialItemComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +49,9 @@ import { BannerComponent } from './banner/banner.component';
     ValidationMessageComponent,
     SocialsComponent,
     BtnFormComponent,
-    BannerComponent
+    BannerComponent,
+    TestimonialCarouselComponent,
+    TestimonialItemComponent
   ]
 })
 export class ComponentsModule { }

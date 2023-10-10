@@ -11,5 +11,4 @@ export class TestimonialCardComponent {
   @Input() city: string = '';
   @Input() image: string = '';
   @Input() testimonial: string = '';
-  @Input() isCard: boolean = false;
 }

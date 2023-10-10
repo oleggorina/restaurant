@@ -1,0 +1,65 @@
+@import '../../../scss/common';
+
+.section {
+  position: relative;
+  .container {
+    @extend %container;
+    .testimonial {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: calc($gap * 2);
+      &__title {
+        text-align: center;
+        display: grid;
+        gap: calc($gap / 2);
+        &-title {
+          h4 {
+            color: $color-light;
+          }
+        }
+        &-symbol {
+          color: $color-accent;
+          font-size: 45px;
+        }
+      }
+      &__carousel {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        .carousel {
+          position: relative;
+          overflow: hidden;
+          width: 800px;
+          height: 300px;
+          @include sm {
+            height: 400px;
+          }
+          &__items {
+            position: absolute;
+            display: flex;
+            gap: $gap;
+            left: 0;
+            top: 0;
+            transition: all 0.5s ease-in-out;
+          }
+        }
+        .controls {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          height: 100%;
+          justify-content: space-between;
+          align-items: center;
+          &__btn {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .wrapper {
+    @extend %wrapper;
+    background-color: $color-primary;
+  }
+}

@@ -1,0 +1,46 @@
+<div class="section">
+  <div class="container">
+    <section class="testimonial">
+      <div class="testimonial__title">
+        <div class="testimonial__title-subtitle">
+          <app-subtitle [text]="'testimonial'" [textColor]="'white'"></app-subtitle>
+        </div>
+        <div class="testimonial__title-title">
+          <h4>What Our Clients Say</h4>
+        </div>
+        <div class="testimonial__title-symbol">
+          <svg xmlns="http://www.w3.org/2000/svg" width="46" height="34" viewBox="0 0 46 34" fill="none">
+            <path d="M7.36236 31.793C9.67905 30.7988 11.7012 29.2877 13.4289 27.2596C15.1566 25.2316 16.1972 23.1637 16.5506 21.0561C16.7469 19.9427 16.8451 18.9883 16.8451 18.193C16.8451 17.2784 16.7469 16.5228 16.5506 15.9263C14.7051 17.8749 12.3688 18.8491 9.54161 18.8491C6.71447 18.8491 4.41741 18.014 2.65045 16.3439C0.883481 14.6737 -2.73352e-06 12.3673 8.23921e-07 9.42456C5.80569e-07 6.64094 0.942379 4.37427 2.82714 2.62456C4.67264 0.874857 7.02859 3.15321e-06 9.895 3.1564e-06C13.8216 3.16077e-06 16.688 1.43158 18.4942 4.29474C19.3188 5.52749 19.9667 7.0386 20.4379 8.82807C20.9091 10.6573 21.1447 12.5263 21.1447 14.4351C21.1447 18.6105 20.0845 22.4281 17.9641 25.8877C15.8438 29.3474 12.6829 32.0515 8.48144 34L7.36236 31.793ZM32.2177 31.793C34.5344 30.7988 36.5566 29.2877 38.2843 27.2596C40.012 25.2316 41.0525 23.1637 41.4059 21.0561C41.6022 19.9427 41.7004 18.9883 41.7004 18.193C41.7004 17.2784 41.6022 16.5228 41.4059 15.9263C39.5604 17.8749 37.2241 18.8491 34.3969 18.8491C31.5698 18.8491 29.2727 18.014 27.5058 16.3439C25.7388 14.6737 24.8553 12.3673 24.8553 9.42456C24.8553 6.64094 25.7977 4.37427 27.6825 2.62456C29.528 0.874857 31.8839 3.18089e-06 34.7503 3.18408e-06C38.6769 3.18845e-06 41.5433 1.43158 43.3496 4.29474C44.1741 5.52749 44.822 7.0386 45.2932 8.82807C45.7644 10.6573 46 12.5263 46 14.4351C46 18.6105 44.9398 22.4281 42.8195 25.8877C40.6991 29.3474 37.5382 32.0515 33.3367 34L32.2177 31.793Z" fill="#E1B168"/>
+          </svg>
+        </div>
+      </div>
+      <div class="testimonial__carousel">
+        <div class="carousel" #container [style.height]="carouselHeightValue">
+          <div class="carousel__items" #carousel>
+            <div class="carousel__items-item" *ngFor="let item of data"
+            #carouselItem [style.width]="cardWidthValue">
+              <app-testimonial-item
+              [image]="item.image"
+              [name]="item.name"
+              [city]="item.city"
+              [text]="item.testimonial"></app-testimonial-item>
+            </div>
+          </div>
+        </div>
+        <div class="controls">
+          <div class="controls__btn" (click)="prev()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="38" viewBox="0 0 21 38" fill="none">
+              <path d="M19 2L2 19L19 36" stroke="#E1B168" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square"/>
+            </svg>
+          </div>
+          <div class="controls__btn" (click)="next()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="38" viewBox="0 0 21 38" fill="none">
+              <path d="M2 2L19 19L2 36" stroke="#E1B168" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="wrapper"></div>
+</div>

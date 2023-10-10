@@ -1,0 +1,72 @@
+@import '../../../scss/common';
+
+.item {
+  width: 100%;
+  display: grid;
+  gap: calc($gap * 2);
+  &__text {
+    text-align: center;
+    p {
+      font-family: $font-header;
+      color: $color-light;
+      font-size: 25px;
+      font-style: italic;
+      font-weight: 100;
+      line-height: 146%;
+      @include lg {
+        font-size: 22px;
+      }
+      @include md {
+        font-size: 20px;
+      }
+      @include sm {
+        font-size: 18px;
+      }
+    }
+  }
+  &__user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    &-image {
+      border-radius: 50%;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .symbol {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: $color-accent;
+        border: 2px solid $color-primary;
+        color: $color-primary;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    &-name {
+      display: flex;
+      flex-direction: column;
+      gap: calc($gap / 2);
+      h5 {
+        color: $color-light;
+      }
+      span {
+        color: $color-accent;
+        @include sm {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
