@@ -5,6 +5,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
 import { MenuStartersComponent } from './components/menu-starters/menu-starters.component';
 import { MenuImageComponent } from './components/menu-image/menu-image.component';
 import { MenuMainDishComponent } from './components/menu-main-dish/menu-main-dish.component';
+import { MenuDessertsComponent } from './components/menu-desserts/menu-desserts.component';
 
 
 
@@ -13,7 +14,8 @@ import { MenuMainDishComponent } from './components/menu-main-dish/menu-main-dis
     MenuComponent,
     MenuStartersComponent,
     MenuImageComponent,
-    MenuMainDishComponent
+    MenuMainDishComponent,
+    MenuDessertsComponent
   ],
   imports: [
     CommonModule,
