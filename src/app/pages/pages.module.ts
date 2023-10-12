@@ -5,6 +5,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
 import { MenuModule } from './menu/menu.module';
+import { BookingModule } from './booking/booking.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { MenuModule } from './menu/menu.module';
     PagesRoutingModule,
     HomeModule,
     AboutModule,
-    MenuModule
+    MenuModule,
+    BookingModule
   ]
 })
 export class PagesModule { }
