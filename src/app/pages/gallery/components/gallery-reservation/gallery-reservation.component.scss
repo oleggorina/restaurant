@@ -1,0 +1,35 @@
+@import '../../../../../scss/common';
+
+.section {
+  position: relative;
+  .container {
+    @extend %container;
+    .reservation {
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: $gap;
+      @include xl {
+        max-width: 100%;
+      }
+      &__title {
+        &-title {
+          h3 {
+            color: $color-light;
+          }
+        }
+      }
+      &__text {
+        p {
+          color: $color-light;
+        }
+      }
+    }
+  }
+  .wrapper {
+    @extend %wrapper;
+    background-image: url('../../../../../assets/images/gallery/reservation/image.jpg');
+    background-position: center center;
+    background-size: cover;
+  }
+}

@@ -1,0 +1,58 @@
+@import '../../../../../scss/common';
+
+.container {
+  @extend %container;
+  .images {
+    display: grid;
+    gap: $gap;
+    &__items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas: "i1 i1 i2 i3" "i4 i5 i6 i6";
+      gap: $gap;
+      @include lg {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "i1" "i2" "i3" "i4" "i5" "i6";
+      }
+      &-item {
+        position: relative;
+        @for $i from 1 to 7 {
+          &:nth-of-type(#{$i}) {
+            grid-area: i#{$i};
+          }
+        }
+        .wrapper {
+          @extend %wrapper;
+          z-index: 1;
+          background-color: rgba(41, 46, 54, 0.70);;
+          opacity: 0;
+          transition: 0.2s ease-in;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          &:hover {
+            opacity: 1;
+            cursor: pointer;
+          }
+          h4 {
+            color: $color-light;
+          }
+          span {
+            color: $color-accent;
+          }
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    &__btn {
+      justify-self: center;
+    }
+  }
+}

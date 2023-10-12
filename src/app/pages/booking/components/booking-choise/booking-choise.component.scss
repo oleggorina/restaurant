@@ -53,7 +53,7 @@
           padding: $gap;
           border: 2px solid #EAEAEA;  
           align-items: center;
-          justify-content: start;
+          justify-content: flex-start;
           gap: calc($gap / 2);
           &__text {
             span {
