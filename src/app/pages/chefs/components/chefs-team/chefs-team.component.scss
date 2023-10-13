@@ -1,0 +1,14 @@
+@import '../../../../../scss/common';
+
+.container {
+  @extend %container;
+  .team {
+    display: grid;
+    gap: $gap;
+    &__chefs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $gap;
+    }
+  }
+}

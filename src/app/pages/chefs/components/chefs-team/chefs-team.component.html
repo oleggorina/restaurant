@@ -8,14 +8,11 @@
         <h4>Meet Our Professional Chefs</h4>
       </div>
     </div>
-    <div class="team__items">
+    <div class="team__chefs">
       <app-team-card *ngFor="let team of teamData"
       [teamImage]="team.image"
       [teamName]="team.name"
       [teamJob]="team.job"></app-team-card>
-    </div>
-    <div class="team__btn">
-      <app-btn-primary routerLink="/chefs" [btnText]="'Our Chefs'" [textColor]="'accent'"></app-btn-primary>
     </div>
   </section>
 </div>

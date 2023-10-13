@@ -8,7 +8,7 @@ import { IPopularDishes } from '../interface/interface';
 })
 export class PopularDishesService {
 
-  url: string = 'https://restaurant-ba87c-default-rtdb.europe-west1.firebasedatabase.app/popular-dishes';
+  private url: string = 'https://restaurant-ba87c-default-rtdb.europe-west1.firebasedatabase.app/popular-dishes';
 
   constructor(private http: HttpClient) { }
 

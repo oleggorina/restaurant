@@ -8,7 +8,7 @@ import { ITeamCard } from '../interface/interface';
 })
 export class TeamService {
 
-  url: string = 'https://restaurant-ba87c-default-rtdb.europe-west1.firebasedatabase.app/chefs';
+  private url: string = 'https://restaurant-ba87c-default-rtdb.europe-west1.firebasedatabase.app/chefs';
 
   constructor(private http: HttpClient) { }
 

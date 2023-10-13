@@ -7,7 +7,7 @@ import { ITestimonialCard } from '../interface/interface';
   providedIn: 'root'
 })
 export class TestimonialsService {
-  url: string = 'https://restaurant-ba87c-default-rtdb.europe-west1.firebasedatabase.app/testimonials';
+  private url: string = 'https://restaurant-ba87c-default-rtdb.europe-west1.firebasedatabase.app/testimonials';
   
   constructor(private http: HttpClient) { }
 

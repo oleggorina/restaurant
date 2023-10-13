@@ -7,7 +7,7 @@ import { IProduct } from '../interface/interface';
   providedIn: 'root'
 })
 export class ProductsService {
-  url: string = 'https://restaurant-ba87c-default-rtdb.europe-west1.firebasedatabase.app/menu';
+  private url: string = 'https://restaurant-ba87c-default-rtdb.europe-west1.firebasedatabase.app/menu';
   
   constructor(private http: HttpClient) { }
 

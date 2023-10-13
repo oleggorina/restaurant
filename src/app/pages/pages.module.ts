@@ -7,6 +7,7 @@ import { AboutModule } from './about/about.module';
 import { MenuModule } from './menu/menu.module';
 import { BookingModule } from './booking/booking.module';
 import { GalleryModule } from './gallery/gallery.module';
+import { ChefsModule } from './chefs/chefs.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { GalleryModule } from './gallery/gallery.module';
     AboutModule,
     MenuModule,
     BookingModule,
-    GalleryModule
+    GalleryModule,
+    ChefsModule
   ]
 })
 export class PagesModule { }

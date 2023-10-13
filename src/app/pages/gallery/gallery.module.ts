@@ -5,6 +5,7 @@ import { GalleryImagesComponent } from './components/gallery-images/gallery-imag
 import { ComponentsModule } from 'src/app/components/components.module';
 import { GalleryReservationComponent } from './components/gallery-reservation/gallery-reservation.component';
 import { GalleryFeatureComponent } from './components/gallery-feature/gallery-feature.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,7 +18,8 @@ import { GalleryFeatureComponent } from './components/gallery-feature/gallery-fe
   ],
   imports: [
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
+    RouterModule
   ]
 })
 export class GalleryModule { }

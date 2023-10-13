@@ -7,6 +7,7 @@ import { AboutCountsComponent } from './components/about-counts/about-counts.com
 import { AboutTeamComponent } from './components/about-team/about-team.component';
 import { AboutGalleryComponent } from './components/about-gallery/about-gallery.component';
 import { AboutTestimonialsComponent } from './components/about-testimonials/about-testimonials.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -21,7 +22,8 @@ import { AboutTestimonialsComponent } from './components/about-testimonials/abou
   ],
   imports: [
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
+    RouterModule
   ]
 })
 export class AboutModule { }

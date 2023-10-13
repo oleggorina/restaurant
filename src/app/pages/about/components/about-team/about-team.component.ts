@@ -21,7 +21,7 @@ export class AboutTeamComponent implements OnInit, OnDestroy {
       toArray(),
       mergeMap(array => array)
     ).subscribe((data) => {
-      this.teamData = data.slice(-4);
+      this.teamData = data.slice(0, 4);
       this.changeDetector.detectChanges();
     })
   }

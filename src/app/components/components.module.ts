@@ -15,6 +15,7 @@ import { BtnFormComponent } from './btn-form/btn-form.component';
 import { BannerComponent } from './banner/banner.component';
 import { TestimonialCarouselComponent } from './testimonial-carousel/testimonial-carousel.component';
 import { TestimonialItemComponent } from './testimonial-item/testimonial-item.component';
+import { TeamCardComponent } from './team-card/team-card.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TestimonialItemComponent } from './testimonial-item/testimonial-item.co
     BtnFormComponent,
     BannerComponent,
     TestimonialCarouselComponent,
-    TestimonialItemComponent
+    TestimonialItemComponent,
+    TeamCardComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { TestimonialItemComponent } from './testimonial-item/testimonial-item.co
     BtnFormComponent,
     BannerComponent,
     TestimonialCarouselComponent,
-    TestimonialItemComponent
+    TestimonialItemComponent,
+    TeamCardComponent
   ]
 })
 export class ComponentsModule { }
