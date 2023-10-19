@@ -32,4 +32,8 @@ export interface ITeamCard {
   name: string;
   job: string;
   image: string;
+  id: number;
+  email: string;
+  phone: number;
+  experience: number;
 }

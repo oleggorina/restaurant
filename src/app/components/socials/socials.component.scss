@@ -11,9 +11,14 @@
     cursor: pointer;
     i {
       font-size: 25px;
-      color: $color-light;
       @include sm {
         font-size: 18px;
+      }
+      &.white {
+        color: $color-light;
+      }
+      &.primary {
+        color: $color-primary;
       }
     }
   }

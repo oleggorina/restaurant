@@ -1,0 +1,62 @@
+<div class="container">
+  <section class="chef">
+    <div class="chef__image">
+      <img src="{{chefData.image}}" alt="Chef Image">
+    </div>
+    <div class="chef__content">
+      <div class="title">
+        <div class="title__title">
+          <h4>{{chefData.name}}</h4>
+        </div>
+        <div class="title__subtitle">
+          <h6>{{chefData.job}}</h6>
+        </div>
+        <div class="title__text">
+          <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divid with additional clickthroughs from Nanotechnology immersion along the information highway will close the loop on focusing solely the bottom line.</p>
+        </div>
+      </div>
+      <div class="contacts">
+        <div class="contacts__item">
+          <div class="contacts__item-icon">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <div class="contacts__item-text">
+            <span>Experience</span>
+            <span>{{chefData.experience}} Years of Experience</span>
+          </div>
+        </div>
+        <div class="contacts__item">
+          <div class="contacts__item-icon">
+            <i class="fa-regular fa-envelope"></i>
+          </div>
+          <div class="contacts__item-text">
+            <span>Mail</span>
+            <span>{{chefData.email}}</span>
+          </div>
+        </div>
+        <div class="contacts__item">
+          <div class="contacts__item-icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <div class="contacts__item-text">
+            <span>Contact Us</span>
+            <span>{{chefData.phone}}</span>
+          </div>
+        </div>
+        <div class="contacts__item">
+          <div class="contacts__item-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div class="contacts__item-text">
+            <span>Locate Us</span>
+            <span>Riverside 25, San Francisco, California <br>
+              Mon To Fri 9:00 AM - 9:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="socials">
+        <app-socials [textColor]="'primary'"></app-socials>
+      </div>
+    </div>
+  </section>
+</div>

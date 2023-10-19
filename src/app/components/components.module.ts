@@ -16,6 +16,7 @@ import { BannerComponent } from './banner/banner.component';
 import { TestimonialCarouselComponent } from './testimonial-carousel/testimonial-carousel.component';
 import { TestimonialItemComponent } from './testimonial-item/testimonial-item.component';
 import { TeamCardComponent } from './team-card/team-card.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TeamCardComponent } from './team-card/team-card.component';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports: [
     BtnPrimaryComponent,

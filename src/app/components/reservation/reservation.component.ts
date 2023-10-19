@@ -28,7 +28,7 @@ export class ReservationComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.initAnimation();
+    // this.initAnimation();
   }
 
   initAnimation(): void {

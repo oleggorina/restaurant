@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { chefResolver } from '../services/chef.resolver';
 import { AboutComponent } from './about/about.component';
 import { BookingComponent } from './booking/booking.component';
+import { ChefsDetailsComponent } from './chefs-details/chefs-details.component';
 import { ChefsComponent } from './chefs/chefs.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { HomeComponent } from './home/home.component';
@@ -15,6 +17,7 @@ const routes: Routes = [
   { path: 'booking', component: BookingComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'chefs', component: ChefsComponent },
+  { path: 'chef-details/:id', component: ChefsDetailsComponent, resolve: {data: chefResolver} },
 ];
 
 @NgModule({

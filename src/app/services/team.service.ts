@@ -15,4 +15,8 @@ export class TeamService {
   getTeam(): Observable<ITeamCard[]> {
     return this.http.get<ITeamCard[]>(`${this.url}.json`);
   }
+
+  getChef(id: number) {
+    return this.http.get<ITeamCard>(`${this.url}/${id}.json`);
+  }
 }

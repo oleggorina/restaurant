@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import gsap from 'gsap';
 
 @Component({
@@ -9,9 +9,11 @@ import gsap from 'gsap';
 })
 export class SocialsComponent implements AfterViewInit {
   @ViewChild('socials') socials!: ElementRef;
+
+  @Input() textColor: string = 'white';
   
   ngAfterViewInit(): void {
-    this.initAnimation();
+    // this.initAnimation();
   }
 
   initAnimation(): void {

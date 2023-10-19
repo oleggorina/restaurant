@@ -11,4 +11,5 @@ export class TeamCardComponent {
   @Input() teamImage: string = '';
   @Input() teamName: string = '';
   @Input() teamJob: string = '';
+  @Input() teamId: number = 0;
 }

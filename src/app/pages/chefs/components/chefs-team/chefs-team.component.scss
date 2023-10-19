@@ -5,10 +5,20 @@
   .team {
     display: grid;
     gap: $gap;
+    &__title {
+      justify-self: center;
+      text-align: center;
+    }
     &__chefs {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: $gap;
+      @include lg {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include md {
+        grid-template-columns: 1fr;
+      }
     }
   }
 }
