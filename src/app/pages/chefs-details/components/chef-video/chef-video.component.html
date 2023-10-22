@@ -1,1 +1,28 @@
-<p>chef-video works!</p>
+<div class="section">
+  <div class="container">
+    <section class="video">
+      <div class="video__title">
+        <div class="subtitle">
+          <app-subtitle [text]="'promo'" [textColor]="'white'"></app-subtitle>
+        </div>
+        <div class="title">
+          <h4>My Promo Video</h4>
+        </div>
+      </div>
+      <div class="video__player" #player>
+        <div class="video__player-img">
+          <img src="../../../../../assets/images/chefs/chef-video/image.jpg" alt="Video image">
+        </div>
+        <div class="video__player-icon" (click)="isModalOpen = true">
+          <i class="fa-solid fa-play"></i>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="wrapper"></div>
+</div>
+
+<app-modal [(isOpen)]="isModalOpen">
+  <iframe
+  src="https://www.youtube.com/embed/8G4oG3VdGyg" title="Best Service Challenges featuring Gordon Ramsay | MasterChef Australia | MasterChef World" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</app-modal>

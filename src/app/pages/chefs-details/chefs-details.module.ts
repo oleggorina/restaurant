@@ -5,8 +5,6 @@ import { ComponentsModule } from 'src/app/components/components.module';
 import { ChefDetailComponent } from './components/chef-detail/chef-detail.component';
 import { ChefVideoComponent } from './components/chef-video/chef-video.component';
 
-
-
 @NgModule({
   declarations: [
     ChefsDetailsComponent,

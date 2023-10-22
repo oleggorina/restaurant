@@ -17,6 +17,7 @@ import { TestimonialCarouselComponent } from './testimonial-carousel/testimonial
 import { TestimonialItemComponent } from './testimonial-item/testimonial-item.component';
 import { TeamCardComponent } from './team-card/team-card.component';
 import { RouterModule } from '@angular/router';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { RouterModule } from '@angular/router';
     BannerComponent,
     TestimonialCarouselComponent,
     TestimonialItemComponent,
-    TeamCardComponent
+    TeamCardComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +58,8 @@ import { RouterModule } from '@angular/router';
     BannerComponent,
     TestimonialCarouselComponent,
     TestimonialItemComponent,
-    TeamCardComponent
+    TeamCardComponent,
+    ModalComponent
   ]
 })
 export class ComponentsModule { }
