@@ -1,0 +1,131 @@
+@import '../../../../../scss/common';
+
+.container {
+  @extend %container;
+  .contact  {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    gap: calc($gap * 2.5);
+    @include ul {
+      grid-template-columns: 1fr;
+    }
+    &__info {
+      background-color: #FFF8F5;
+      padding: calc($gap * 3.5);
+      display: grid;
+      gap: calc($gap * 2);
+      @include lg {
+        padding: calc($gap * 2.5);
+      }
+      @include md {
+        padding: calc($gap * 2);
+      }
+      @include sm {
+        padding: $gap;
+      }
+      .title {
+        display: grid;
+        gap: $gap;
+        &__text {
+          p {
+            color: $color-gray;
+          }
+        }
+      }
+      .items {
+        display: grid;
+        gap: $gap;
+        &__item {
+          display: flex;
+          align-items: center;
+          gap: calc($gap / 2);
+          @include md {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: $color-primary;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include sm {
+              width: 40px;
+              height: 40px;
+            }
+            i {
+              font-size: 25px;
+              color: $color-light;
+              @include sm {
+                font-size: $gap;
+              }
+            }
+          }
+          .text {
+            span {
+              color: $color-gray;
+            }
+          }
+        }
+      }
+      .socials {
+        display: flex;
+        gap: calc($gap / 2);
+        &__item {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: rgba(41, 46, 54, 0.1);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          @include sm {
+            width: 40px;
+            height: 40px;
+          }
+          &:hover {
+            background-color: $color-accent;
+          }
+          i {
+            color: $color-primary;
+            font-size: $gap;
+            @include sm {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+    &__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @include ul {
+        gap: calc($gap * 2);
+      }
+      .form {
+        display: grid;
+        gap: $gap;
+        &__row {
+          display: flex;
+          gap: $gap;
+          @include md {
+            flex-direction: column;
+          }
+          &-col {
+            width: 100%;
+            position: relative;
+            input,
+            textarea {
+              color: $color-gray;
+              border: 1px solid #C4C4C4;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -116,7 +116,8 @@ section {
   }
 }
 
-input {
+input,
+textarea {
   width: 100%;
   padding: 0 20px;
   background: transparent;
@@ -127,4 +128,10 @@ input {
   &:focus {
     outline: none;
   }
+}
+
+textarea {
+  padding: 20px;
+  height: 100%;
+  resize: none;
 }

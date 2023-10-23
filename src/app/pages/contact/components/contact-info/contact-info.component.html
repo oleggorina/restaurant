@@ -1,0 +1,104 @@
+<div class="container">
+  <section class="contact">
+    <div class="contact__info">
+      <div class="title">
+        <div class="title__title">
+          <h4>Contact Information</h4>
+        </div>
+        <div class="title__text">
+          <p>Bring the table winwin survival strateges ensure proactive domination the end of the day going real times multiple touchpoints.</p>
+        </div>
+      </div>
+      <div class="items">
+        <div class="items__item">
+          <div class="icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div class="text">
+            <span>Riverside 25, San Francisco, California</span>
+          </div>
+        </div>
+        <div class="items__item">
+          <div class="icon">
+            <i class="fa-regular fa-envelope"></i>
+          </div>
+          <div class="text">
+            <span>evanmattew@mail.com</span>
+          </div>
+        </div>
+        <div class="items__item">
+          <div class="icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <div class="text">
+            <span>800-234-567</span>
+          </div>
+        </div>
+      </div>
+      <div class="socials">
+        <div class="socials__item">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+        <div class="socials__item">
+          <i class="fa-brands fa-facebook"></i>
+        </div>
+        <div class="socials__item">
+          <i class="fa-brands fa-twitter"></i>
+        </div>
+        <div class="socials__item">
+          <i class="fa-brands fa-pinterest"></i>
+        </div>
+      </div>
+    </div>
+    <div class="contact__form">
+      <div class="title">
+        <div class="title__subtitle">
+          <app-subtitle [text]="'mail us'"></app-subtitle>
+        </div>
+        <div class="title__title">
+          <h4>Have a Question?</h4>
+        </div>
+      </div>
+      <form class="form" [formGroup]="contactForm">
+        <div class="form__row">
+          <div class="form__row-col">
+            <input type="text" placeholder="Name" formControlName="name">
+            <app-validation-message *ngIf="contactForm.get('name')?.hasError('required') && contactForm.get('name')?.touched"
+            [message]="'Name is required !'"></app-validation-message>
+            <app-validation-message *ngIf="contactForm.get('name')?.hasError('minlength')"
+            [message]="'Min 4 characters !'"></app-validation-message>
+          </div>
+          <div class="form__row-col">
+            <input type="text" placeholder="Email" formControlName="email">
+            <app-validation-message *ngIf="contactForm.get('email')?.hasError('reqruied') && contactForm.get('email')?.touched"
+            [message]="'Email is required !'"></app-validation-message>
+            <app-validation-message *ngIf="contactForm.get('email')?.hasError('email')"
+            [message]="'Invalid email !'"></app-validation-message>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__row-col">
+            <input type="text" placeholder="Subject" formControlName="subject"> 
+            <app-validation-message *ngIf="contactForm.get('subject')?.hasError('required') && contactForm.get('subject')?.touched"
+            [message]="'Subject is required !'"></app-validation-message>
+          </div>
+          <div class="form__row-col">
+            <input type="number" placeholder="Phone" formControlName="phone">
+            <app-validation-message *ngIf="contactForm.get('phone')?.hasError('required') && contactForm.get('phone')?.touched"
+            [message]="'Phone is required !'"></app-validation-message>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__row-col">
+            <textarea name="message" cols="5" rows="10" placeholder="Message" formControlName="message"></textarea>
+            <app-validation-message *ngIf="contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched"
+            [message]="'Message is required !'"></app-validation-message>
+          </div>
+        </div>
+      </form>
+      <div class="btn" (click)="onSubmit()">
+        <app-btn-primary [btnText]="'Send'"></app-btn-primary>
+      </div>
+    </div>
+  </section>
+</div>
