@@ -12,4 +12,5 @@ export class CardBlogComponent {
   @Input() type: string = '';
   @Input() date: string = '';
   @Input() summary: string = '';
+  @Input() blogId: number = 0;
 }

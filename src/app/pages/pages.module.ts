@@ -10,6 +10,8 @@ import { GalleryModule } from './gallery/gallery.module';
 import { ChefsModule } from './chefs/chefs.module';
 import { ChefsDetailsModule } from './chefs-details/chefs-details.module';
 import { ContactModule } from './contact/contact.module';
+import { BlogModule } from './blog/blog.module';
+import { BlogDetailsModule } from './blog-details/blog-details.module';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { ContactModule } from './contact/contact.module';
     GalleryModule,
     ChefsModule,
     ChefsDetailsModule,
-    ContactModule
+    BlogDetailsModule,
+    ContactModule,
+    BlogModule
   ]
 })
 export class PagesModule { }

@@ -15,4 +15,8 @@ export class BlogService {
   getArticles(): Observable<ICardBlog[]> {
     return this.http.get<ICardBlog[]>(`${this.url}.json`);
   }
+
+  getBlog(id: number) {
+    return this.http.get<ICardBlog>(`${this.url}/${id}.json`);
+  }
 }

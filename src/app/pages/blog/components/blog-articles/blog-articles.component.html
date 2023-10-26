@@ -1,0 +1,30 @@
+<div class="container">
+  <section class="blog">
+    <div class="blog__header">
+      <div class="blog__header-subtitle">
+        <app-subtitle [text]="'blog'"></app-subtitle>
+      </div>
+      <div class="blog__header-title">
+        <h4>Be First Who Read News</h4>
+      </div>
+      <div class="blog__header-text">
+        <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content making.</p>
+      </div>
+    </div>
+    <div class="blog__items">
+      <div class="blog__items-item" *ngFor="let article of articleData.slice(startIndex, endIndex)">
+        <app-card-blog
+        [image]="article.image"
+        [title]="article.title"
+        [type]="article.type"
+        [date]="article.date"
+        [summary]="article.summary"
+        [blogId]="article.id"></app-card-blog>
+      </div>
+    </div>
+    <div class="blog__btns">
+      <app-btn-primary [btnText]="'< Prev'" [textColor]="'accent'" (click)="prevPage()"></app-btn-primary>
+      <app-btn-primary [btnText]="'Next >'" [textColor]="'accent'" (click)="nextPage()"></app-btn-primary>
+    </div>
+  </section>
+</div>

@@ -26,6 +26,7 @@ export interface ICardBlog {
   image: string;
   date: string;
   type: string;
+  id: number;
 }
 
 export interface ITeamCard {

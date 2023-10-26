@@ -3,7 +3,8 @@
     <img src="{{image}}" alt="">
     <div class="card__image-wrapper"></div>
     <div class="card__image-btn">
-      <app-btn-primary [btnText]="'View More'" [textColor]="'accent'"></app-btn-primary>
+      <app-btn-primary routerLink="/blog-details/{{blogId}}"
+      [btnText]="'View More'" [textColor]="'accent'"></app-btn-primary>
     </div>
   </div>
   <div class="card__content">

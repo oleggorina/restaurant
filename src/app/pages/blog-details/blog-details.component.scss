@@ -1,0 +1,74 @@
+@import '../../../scss/common';
+
+.container {
+  @extend %container;
+  .blog {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: calc($gap * 2);
+    &__header {
+      max-width: 900px;
+      justify-self: center;
+      display: grid;
+      gap: $gap;
+      text-align: center;
+      &-subtitle {
+        display: flex;
+        gap: calc($gap / 2);
+        justify-content: center;
+        @include sm {
+          flex-direction: column;
+        }
+      }
+      &-text {
+        p {
+          color: $color-gray;
+        }
+      }
+    }
+    &__image {
+      img {
+        width: 100%;
+        max-height: 655px;
+        object-fit: cover;
+      }
+    }
+    &__content {
+      max-width: 900px;
+      justify-self: center;
+      display: grid;
+      gap: calc($gap * 2);
+      &-descr {
+        p {
+          color: $color-gray;
+        }
+      }
+      &-text {
+        display: grid;
+        gap: $gap;
+        p {
+          color: $color-gray;
+        }
+        ul {
+          line-height: 237%;
+        }
+      }
+      &-comment {
+        text-align: center;
+        background-color: #FFF8F5;
+        padding: calc($gap * 3);
+        @include md {
+          padding: calc($gap * 2);
+        }
+        @include sm {
+          padding: $gap;
+        }
+        p {
+          color: $color-gray;
+          line-height: 140%;
+        }
+      }
+    }
+  }
+}
