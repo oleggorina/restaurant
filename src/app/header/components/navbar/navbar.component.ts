@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.initAnimation();
+    // this.initAnimation();
   }
 
   @HostListener('window:resize')

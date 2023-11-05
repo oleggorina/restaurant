@@ -1,5 +1,5 @@
 <div class="container">
-  <section class="dishes">
+  <section class="dishes" #popularDishesComponent>
     <div class="dishes__content">
       <div class="dishes__content-title">
         <app-subtitle [text]="'menu'"></app-subtitle>
@@ -10,7 +10,8 @@
       </div>
     </div>
     <div class="dishes__items" >
-      <div class="dishes__items-item" *ngFor="let item of popularDishesData.slice(-4)" #dishesItem>
+      <div class="dishes__items-item" *ngFor="let item of popularDishesData.slice(-4); index as i"
+      [@fromBottom]="animationState$ | async">
         <div class="item">
           <div class="item__image">
             <img src="{{item.image}}" alt="{{item.title}} image">

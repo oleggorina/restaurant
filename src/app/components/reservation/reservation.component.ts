@@ -1,21 +1,27 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { AnimationService } from 'src/app/services/animation.service';
+import { fromTop } from 'src/app/services/animations.const';
 
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.scss'],
+  animations: [
+    fromTop
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ReservationComponent implements OnInit, AfterViewInit {
+export class ReservationComponent implements OnInit {
   
   reservationForm!: FormGroup;
-  @ViewChild('form') form!: ElementRef;
-  timeOut: any;
+  @ViewChild('reservationComponent') reservationComponent!: ElementRef;
+  private animationStateSubject: BehaviorSubject<string> = new BehaviorSubject('out');
+  animationState$: Observable<string> = this.animationStateSubject.asObservable();
   
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,
+    private animationService: AnimationService) {}
 
   ngOnInit(): void {
     this.reservationForm = this.formBuilder.group({
@@ -27,27 +33,15 @@ export class ReservationComponent implements OnInit, AfterViewInit {
     })
   }
 
-  ngAfterViewInit(): void {
-    // this.initAnimation();
-  }
-
-  initAnimation(): void {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from(this.form.nativeElement, {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: this.form.nativeElement,
-        start: 'top 90%',
-        end: 'bottom 75%',
-        scrub: true
-      }
-    })
-  }
-
   onSubmit() {
     if (this.reservationForm.valid) {
       console.log(this.reservationForm.value);
       this.reservationForm.reset();
     }
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  OnScroll() {
+    this.animationService.onScroll(this.reservationComponent, 200, this.animationStateSubject);
   }
 }

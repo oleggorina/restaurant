@@ -1,26 +1,45 @@
-import { AfterContentChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { forkJoin, Subscription } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, OnInit, QueryList, ViewChild } from '@angular/core';
+import { BehaviorSubject, forkJoin, Observable, Subscription } from 'rxjs';
 import { IProduct } from 'src/app/interface/interface';
 import { ProductsService } from 'src/app/services/products.service';
-import { gsap } from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import { AnimationService } from 'src/app/services/animation.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-home-menu',
   templateUrl: './home-menu.component.html',
   styleUrls: ['./home-menu.component.scss'],
+  animations: [
+    trigger('menuItem', [
+      state('in', style({opacity: 1, transform: 'translateX(0)'})),
+      state('out', style({opacity: 0, transform: 'translateX(20px)'})),
+      transition('in => out', animate('0.3s ease-out')),
+      transition('out => in', animate('0.3s ease-in'))
+    ]),
+    trigger('title', [
+      state('in', style({opacity: 1, transform: 'translateY(0)'})),
+      state('out', style({opacity: 0, transform: 'translateY(30px)'})),
+      transition('in => out', animate('0.3s ease-out')),
+      transition('out => in', animate('0.3s ease-in'))
+    ]),
+    trigger('image', [
+      state('in', style({opacity: 1})),
+      state('out', style({opacity: 0})),
+      transition('in => out', animate('0.5s ease-out')),
+      transition('out => in', animate('0.5s ease-in'))
+    ]),
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeMenuComponent implements OnInit, OnDestroy {
+  @ViewChild('menuComponent') menuComponent!: ElementRef;
   menuStarter: IProduct[] = [];
   menuMainDish: IProduct[] = [];
   menuDessert: IProduct[] = [];
   menuDataSubscription!: Subscription;
 
-  @ViewChild('contentTitle') contentTitle!: ElementRef;
-  @ViewChild('contentImage') contentImage!: ElementRef;
-  @ViewChildren('menuItems') menuItems!: QueryList<ElementRef>;
+  private animationStateSubject: BehaviorSubject<string> = new BehaviorSubject('out');
+  animationState$: Observable<string> = this.animationStateSubject.asObservable();
 
   constructor(private productsService: ProductsService,
     private changeDetectorRef: ChangeDetectorRef,
@@ -36,21 +55,15 @@ export class HomeMenuComponent implements OnInit, OnDestroy {
       this.menuMainDish = mainDish;
       this.menuDessert = dessert;
       this.changeDetectorRef.detectChanges();
-      // this.initAnimation();
     })
   }
 
   ngOnDestroy(): void {
     if (this.menuDataSubscription) this.menuDataSubscription.unsubscribe();
-    this.animationService.cleanUpAnimations();
   }
 
-  initAnimation(): void {
-    this.animationService.animateFadeIn(this.contentImage.nativeElement);
-    this.animationService.animateFadeIn(this.contentTitle.nativeElement);
-    this.menuItems.forEach((item) => {
-      const element = item.nativeElement;
-      this.animationService.animateFadeInFromRight(element);
-    })
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    this.animationService.onScroll(this.menuComponent, 400, this.animationStateSubject);
   }
 }

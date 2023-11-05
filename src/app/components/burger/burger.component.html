@@ -8,24 +8,10 @@
 
 <div class="menu" [class.active]="isActive">
   <a routerLink="home" class="menu__link">Home</a>
-  <a routerLink="about" class="menu__link">About Us</a>
-  <a routerLink="about" class="menu__link">Our Menu</a>
-  <div class="menu__link pages" (click)="activeMenu()">Pages</div>
-  <div class="toggle" *ngIf="isActiveMenu">
-    <div class="toggle__left">
-      <a class="menu__link" routerLink="articles">Book A Table</a>
-      <a class="menu__link" routerLink="story">Our Chefs</a>
-      <a class="menu__link" routerLink="product">Chef Single</a>
-      <a class="menu__link" routerLink="product">Recipe</a>
-    </div>
-    <div class="toggle__right">
-      <a class="menu__link" routerLink="not-found">Gallery</a>
-      <a class="menu__link" routerLink="log-in">Gallery Single</a>
-      <a class="menu__link" routerLink="changelog">Order Via App</a>
-      <a class="menu__link" routerLink="product">Order Via App Single</a>
-      <a class="menu__link" routerLink="product">FAQ</a>
-    </div>
-  </div>
-  <a routerLink="about" class="menu__link">Blog</a>
-  <a routerLink="contact" class="menu__link">Contact Us</a>
+  <a routerLink="about" class="menu__link">About</a>
+  <a routerLink="about" class="menu__link">Menu</a>
+  <a routerLink="booking" class="menu__link">Reservation</a>
+  <a routerLink="gallery" class="menu__link">Gallery</a>
+  <a routerLink="blog" class="menu__link">Blog</a>
+  <a routerLink="contact" class="menu__link">Contact</a>
 </div>

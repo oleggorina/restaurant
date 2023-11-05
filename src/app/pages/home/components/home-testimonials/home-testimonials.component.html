@@ -1,4 +1,4 @@
-<div class="home">
+<div class="home" #testimonialComponent>
   <div class="container">
     <section class="testimonials">
       <div class="testimonials__content">
@@ -7,7 +7,7 @@
         <p>We love to hear from customers, so please leave a comment or say hello in an email.</p>
       </div>
       <div class="testimonials__carousel">
-        <div class="carousel" #container>
+        <div class="carousel" #container [@fromRight]="animationState$ | async">
           <div class="carousel__items" #testimonialCarousel>
             <div class="carousel__items-item" #testimonialItem *ngFor="let data of testimonialData"
             [style.width]="cardWidthValue">

@@ -8,6 +8,7 @@ import { ComponentsModule } from './components/components.module';
 import { HeaderModule } from './header/header.module';
 import { FooterModule } from './footer/footer.module';
 import { PagesModule } from './pages/pages.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PagesModule } from './pages/pages.module';
     HeaderModule,
     HttpClientModule,
     FooterModule,
-    PagesModule
+    PagesModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

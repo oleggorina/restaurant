@@ -1,17 +1,23 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
 import { ITestimonialCard } from 'src/app/interface/interface';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { TestimonialsService } from 'src/app/services/testimonials.service';
 import { CarouselService } from 'src/app/services/carousel.service';
+import { AnimationService } from 'src/app/services/animation.service';
+import { fromRight } from 'src/app/services/animations.const';
 
 @Component({
   selector: 'app-home-testimonials',
   templateUrl: './home-testimonials.component.html',
   styleUrls: ['./home-testimonials.component.scss'],
+  animations: [
+    fromRight
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeTestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  @ViewChild('testimonialComponent') testimonialComponent!: ElementRef;
   @ViewChild('testimonialCarousel') testimonialCarousel!: ElementRef;
   @ViewChild('testimonialItem') testimonialItem!: ElementRef;
   @ViewChild('container') container!: ElementRef;
@@ -29,10 +35,14 @@ export class HomeTestimonialsComponent implements OnInit, AfterViewInit, OnDestr
   cardWidthValue: string =  '';
   calculatedWidth: number = 0;
 
+  private animationStateSubject: BehaviorSubject<string> = new BehaviorSubject('out');
+  animationState$: Observable<string> = this.animationStateSubject.asObservable();
+
   constructor(private changeDetectorRef: ChangeDetectorRef,
     private testimonialsService: TestimonialsService,
     private renderer: Renderer2,
-    private carouselService: CarouselService) {
+    private carouselService: CarouselService,
+    private animationService: AnimationService) {
       this.goNext = this.goNext.bind(this);
       this.goPrev = this.goPrev.bind(this);
     }
@@ -84,6 +94,11 @@ export class HomeTestimonialsComponent implements OnInit, AfterViewInit, OnDestr
     this.carouselService.goToSlide(this.testimonialCarousel.nativeElement, this.testimonialItem.nativeElement, this.cardsPerSlide, slideIndex, this.renderer);
   }
 
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    this.animationService.onScroll(this.testimonialComponent, 300, this.animationStateSubject)
+  }
+  
   @HostListener('window:resize', ['$event'])
   onResize(event?: Event): void {
     this.getWidthCard();

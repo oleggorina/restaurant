@@ -4,11 +4,11 @@
       <div class="content__call" #callBtn>
         <app-btn-primary [btnText]="'Call - 123 456 78'" [textColor]="'white'"></app-btn-primary>
       </div>
-      <div class="content__logo" #logo>
+      <div class="content__logo" #logo routerLink="home">
         <img src="../../assets/images/logo/logo.png" alt="logo">
       </div>
       <div class="content__reservation" #reservationBtn>
-        <app-btn-accent [btnText]="'Reservation'"></app-btn-accent>
+        <app-btn-accent routerLink="booking" [btnText]="'Reservation'"></app-btn-accent>
       </div>
     </div>
   </div>

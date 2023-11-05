@@ -80,29 +80,5 @@
     &:hover {
       color: $color-accent;
     }
-    &.pages {
-      color: white;
-      &::after {
-        content: "\2b9f";
-        padding-left: 5px;
-      }
-    }
-  }
-  .toggle {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "left right";
-    @include md {
-      grid-template-columns: 1fr;
-      grid-template-areas: "left" "right";
-      gap: $gap;
-    }
-    &__left {
-      grid-area: left;
-    }
-    &__right {
-      grid-area: right;
-    }
   }
 }

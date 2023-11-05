@@ -29,6 +29,7 @@
       &__logo {
         grid-area: logo;
         justify-self: center;
+        cursor: pointer;
         @include lg {
           justify-self: center;
         }
