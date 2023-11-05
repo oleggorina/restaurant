@@ -1,6 +1,6 @@
-<div class="section">
+<div class="section" #reservationComponent>
   <div class="container">
-    <section class="reservation">
+    <section class="reservation" [@fromLeft]="animationState$ | async">
       <div class="resrvation__title">
         <div class="reservation__title-subtitle">
           <app-subtitle [text]="'reservation'" [textColor]="'white'"></app-subtitle>

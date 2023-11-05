@@ -1,5 +1,5 @@
-<div class="container">
-  <section class="images">
+<div class="container" #imagesComponent>
+  <section class="images" [@fadeIn]="animationState$ | async">
    <div class="images__items">
     <div class="images__items-item">
       <div class="wrapper">

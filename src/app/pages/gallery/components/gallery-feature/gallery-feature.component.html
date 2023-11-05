@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" #featureComponent>
   <section class="feature">
     <div class="feature__block">
       <div class="feature__block-content">
@@ -15,12 +15,12 @@
           <app-btn-primary routerLink="/menu" [btnText]="'View Menu'" [textColor]="'accent'"></app-btn-primary>
         </div>
       </div>
-      <div class="feature__block-image">
+      <div class="feature__block-image" [@fadeIn]="animationState$ | async">
         <img src="../../../../../assets/images/gallery/feature/image1.jpg" alt="Image">
       </div>
     </div>
     <div class="feature__block">
-      <div class="feature__block-image">
+      <div class="feature__block-image" [@fadeIn]="animationState$ | async">
         <img src="../../../../../assets/images/gallery/feature/image2.jpg" alt="Image">
       </div>
       <div class="feature__block-content">
