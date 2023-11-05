@@ -1,4 +1,4 @@
-<app-banner>Our Menu</app-banner>
+<app-banner [@fadeIn]="animationState$ | async">Our Menu</app-banner>
 <app-menu-starters></app-menu-starters>
 <app-menu-image [image]="'../../../assets/images/menu/image1.png'"></app-menu-image>
 <app-menu-main-dish></app-menu-main-dish>

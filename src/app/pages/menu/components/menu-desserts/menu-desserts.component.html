@@ -1,20 +1,21 @@
-<div class="container">
+<div class="container" #menuDessertsComponent>
   <section class="desserts">
-    <div class="desserts__image">
+    <div class="desserts__image" [@fadeIn]="animationState$ | async">
       <img src="../../../../../assets/images/menu/dessert/dessertsimage.png" alt="Image">
     </div>
     <div class="desserts__menu">
       <div class="desserts__menu-title">
         <h4>Dessert</h4>
       </div>
-      <div class="desserts__menu-item" *ngFor="let product of dessertData">
+      <div class="desserts__menu-item" *ngFor="let product of dessertData"
+      [@fromRight]="animationState$ | async">
         <app-product-item
         [title]="product.title"
         [image]="product.image"
         [subtitle]="product.descr"
         [price]="product.price"></app-product-item>
       </div>
-      <div class="desserts__menu-btn">
+      <div class="desserts__menu-btn" [@fromBottom]="animationState$ | async">
         <app-btn-primary [btnText]="'Order Now'" [textColor]="'accent'"></app-btn-primary>
       </div>
     </div>
