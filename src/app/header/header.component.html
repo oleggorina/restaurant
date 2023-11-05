@@ -1,13 +1,13 @@
 <div class="header">
   <div class="container">
     <div class="content">
-      <div class="content__call" #callBtn>
+      <div class="content__call" [@fadeIn]="animationState$ | async">
         <app-btn-primary [btnText]="'Call - 123 456 78'" [textColor]="'white'"></app-btn-primary>
       </div>
-      <div class="content__logo" #logo routerLink="home">
+      <div class="content__logo" routerLink="home" [@fadeIn]="animationState$ | async">
         <img src="../../assets/images/logo/logo.png" alt="logo">
       </div>
-      <div class="content__reservation" #reservationBtn>
+      <div class="content__reservation" [@fadeIn]="animationState$ | async">
         <app-btn-accent routerLink="booking" [btnText]="'Reservation'"></app-btn-accent>
       </div>
     </div>

@@ -1,18 +1,18 @@
-<div class="section">
+<div class="section" #footerComponent>
   <div class="container">
     <section class="footer">
-      <div class="footer__top" #topSide>
-        <div class="footer__top-link">
+      <div class="footer__top">
+        <div class="footer__top-link" [@fromBottom]="animationState$ | async">
           <a href="https://instagram.com" target="_blank">Instagram Feed</a>
         </div>
-        <div class="footer__top-logo">
+        <div class="footer__top-logo" [@fromBottom]="animationState$ | async">
           <img src="../../assets/images/logo/logo.png" alt="logo">
         </div>
-        <div class="footer__top-socials">
+        <div class="footer__top-socials" [@fromBottom]="animationState$ | async">
           <app-socials></app-socials>
         </div>
       </div>
-      <div class="footer__bottom" #bottomSide>
+      <div class="footer__bottom" [@fromBottom]="animationState$ | async">
         <app-footer-left></app-footer-left>
         <app-footer-middle></app-footer-middle>
         <app-footer-right></app-footer-right>

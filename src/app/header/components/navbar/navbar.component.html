@@ -1,6 +1,6 @@
 <div class="line"></div>
 <div class="container">
-  <div class="navbar">
+  <div class="navbar" [@fadeIn]="animationState$ | async">
     <div class="navbar__links" *ngIf="width > 992" #links>
       <a routerLink="home" routerLinkActive="active" class="navbar__links-link">Home</a>
       <a routerLink="about" routerLinkActive="active" class="navbar__links-link">About</a>
@@ -13,7 +13,7 @@
     <div class="navbar__burger" *ngIf="width < 992">
       <app-burger></app-burger>
     </div>
-    <div class="navbar__socials" #socials>
+    <div class="navbar__socials">
       <app-socials></app-socials>
     </div>
   </div>

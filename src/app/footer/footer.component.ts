@@ -1,42 +1,25 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { AnimationService } from '../services/animation.service';
+import { fromBottom } from '../services/animations.const';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
+  animations: [fromBottom],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FooterComponent implements AfterViewInit {
-  @ViewChild('topSide') topSide!: ElementRef;
-  @ViewChild('bottomSide') bottomSide!: ElementRef;
-  
-  ngAfterViewInit(): void {
-    // this.initAnimation();
-  }
+export class FooterComponent {
+  @ViewChild('footerComponent') footerComponent!: ElementRef;
+  animationStateSubject: BehaviorSubject<string> = new BehaviorSubject('out');
+  animationState$: Observable<string> = this.animationStateSubject.asObservable();
 
-  initAnimation(): void {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from(this.topSide.nativeElement, {
-      opacity: 0,
-      y: 50,
-      scrollTrigger: {
-        trigger: this.topSide.nativeElement,
-        start: 'top 90%',
-        end: 'bottom 80%',
-        scrub: true
-      }
-    })
-    gsap.from(this.bottomSide.nativeElement, {
-      opacity: 0,
-      y: 50,
-      scrollTrigger: {
-        trigger: this.bottomSide.nativeElement,
-        start: 'top 90%',
-        end: 'bottom 80%',
-        scrub: true
-      }
-    })
+  constructor(private animationService: AnimationService) {}
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    this.animationService.onScroll(this.footerComponent, 500, this.animationStateSubject);
   }
+  
 }

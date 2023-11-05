@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" #galleryComponent>
   <section class="gallery">
     <div class="gallery__title">
       <div class="gallery__title-subtitle">
@@ -8,7 +8,7 @@
         <h4>What We Make</h4>
       </div>
     </div>
-    <div class="gallery__images">
+    <div class="gallery__images" [@fadeIn]="animationState$ | async">
       <div class="gallery__images-image">
         <img src="../../../../../assets/images/about/gallery/image1.jpg" alt="First gallery image">
       </div>

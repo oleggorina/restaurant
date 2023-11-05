@@ -1,7 +1,7 @@
-<div class="section">
+<div class="section" #countsComponent>
   <div class="container">
     <section class="counts">
-      <div class="counts__item">
+      <div class="counts__item" [@item1]="animationState$ | async">
         <div class="counts__item-image">
           <img src="../../../../../assets/images/about/counts/count1.svg" alt="Count image">
         </div>
@@ -16,8 +16,8 @@
           <a>See more</a>
         </div>
       </div>
-      <div class="counts__line"></div>
-      <div class="counts__item">
+      <div class="counts__line" [@fadeIn]="animationState$ | async"></div>
+      <div class="counts__item" [@item2]="animationState$ | async">
         <div class="counts__item-image">
           <img src="../../../../../assets/images/about/counts/count2.svg" alt="Count image">
         </div>
@@ -32,8 +32,8 @@
           <a>See more</a>
         </div>
       </div>
-      <div class="counts__line"></div>
-      <div class="counts__item">
+      <div class="counts__line" [@fadeIn]="animationState$ | async"></div>
+      <div class="counts__item" [@item3]="animationState$ | async">
         <div class="counts__item-image">
           <img src="../../../../../assets/images/about/counts/count3.svg" alt="Count image">
         </div>
@@ -48,8 +48,8 @@
           <a>See more</a>
         </div>
       </div>
-      <div class="counts__line"></div>
-      <div class="counts__item">
+      <div class="counts__line" [@fadeIn]="animationState$ | async"></div>
+      <div class="counts__item" [@item4]="animationState$ | async">
         <div class="counts__item-image">
           <img src="../../../../../assets/images/about/counts/count4.svg" alt="Count image">
         </div>

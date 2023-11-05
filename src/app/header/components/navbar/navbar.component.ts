@@ -1,37 +1,35 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { gsap } from 'gsap';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { fadeIn } from 'src/app/services/animations.const';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  animations: [
+    fadeIn
+  ]
 })
-export class NavbarComponent implements OnInit, AfterViewInit {
+export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   width: number = window.innerWidth;
-  @ViewChild('links') links!: ElementRef;
+  animationStateSubject: BehaviorSubject<string> = new BehaviorSubject('out');
+  animationState$: Observable<string> = this.animationStateSubject.asObservable();
 
   ngOnInit(): void {
-    const mockEvent: any = {
-      type: 'resize',
-      target: window
-    }
-    this.onResize(mockEvent);
+    this.onResize();
   }
 
   ngAfterViewInit(): void {
-    // this.initAnimation();
+    this.animationStateSubject.next('in');
   }
 
-  @HostListener('window:resize')
-  onResize(event: Event) {
+  ngOnDestroy(): void {
+    this.animationStateSubject.next('out');
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
     this.width = window.innerWidth;
-  }
-
-  initAnimation(): void {
-    gsap.set(this.links.nativeElement, {opacity: 0});
-    gsap.to (this.links.nativeElement, {
-      opacity: 1,
-      duration: 1
-    });
   }
 }

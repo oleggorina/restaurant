@@ -31,8 +31,8 @@ export const fromTop =  [
   trigger('fromTop', [
     state('in', style({opacity: 1, transform: 'translateY(0)'})),
     state('out', style({opacity: 0, transform: 'translateY(-50px)'})),
-    transition('in => out', animate(`0.4s ease-out`)),
-    transition('out => in', animate(`0.4s ease-in`))
+    transition('in => out', animate(`0.3s ease-out`)),
+    transition('out => in', animate(`0.3s ease-in`))
   ])
 ];
 
