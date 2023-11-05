@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" #choiseComponent>
   <section class="choise">
-    <div class="choise__image">
+    <div class="choise__image" [@fadeIn]="animationState$ | async">
       <img src="../../../../../assets/images/booking/image2.png" alt="Image">
     </div>
     <div class="choise__content">
-      <div class="choise__content-title">
+      <div class="choise__content-title" [@fromRight]="animationState$ | async">
         <div class="subtitle">
           <app-subtitle [text]="'why choose us'"></app-subtitle>
         </div>
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="choise__content-items">
-        <div class="item">
+        <div class="item" [@item1]="animationState$ | async">
           <div class="item__image">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29" viewBox="0 0 30 29" fill="none">
               <path d="M1.16579 6.86701C1.01862 6.63449 0.966684 6.35285 1.02103 6.08204C1.07538 5.81123 1.23171 5.57265 1.45676 5.4171C5.4057 2.54468 10.1418 1 15 1C19.8582 1 24.5943 2.54468 28.5432 5.4171C28.7683 5.57265 28.9246 5.81123 28.979 6.08204C29.0333 6.35285 28.9814 6.63449 28.8342 6.86701L15.8861 27.5014C15.7922 27.6539 15.6616 27.7798 15.5066 27.867C15.3516 27.9542 15.1772 28 15 28C14.8228 28 14.6484 27.9542 14.4934 27.867C14.3384 27.7798 14.2078 27.6539 14.1139 27.5014L1.16579 6.86701Z" stroke="#E1B168" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -30,7 +30,7 @@
             <span>Fresh Food</span>
           </div>
         </div>
-        <div class="item">
+        <div class="item" [@item2]="animationState$ | async">
           <div class="item__image">
             <svg xmlns="http://www.w3.org/2000/svg" width="38" height="36" viewBox="0 0 38 36" fill="none">
               <path d="M26.0435 10.9563H32.2946C32.5285 10.9547 32.7573 11.0286 32.9511 11.1683C33.1449 11.3079 33.2946 11.5069 33.3804 11.7389L35.4348 17.2172" stroke="#E1B168" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -46,7 +46,7 @@
             <span>Fast Delivery</span>
           </div>
         </div>
-        <div class="item">
+        <div class="item" [@item3]="animationState$ | async">
           <div class="item__image">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
               <path d="M22 11L12.6614 20L8 15.5" stroke="#E1B168" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -57,7 +57,7 @@
             <span>Quality Maintain</span>
           </div>
         </div>
-        <div class="item">
+        <div class="item" [@item4]="animationState$ | async">
           <div class="item__image">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="30" viewBox="0 0 32 30" fill="none">
               <path d="M15 8V15" stroke="#E1B168" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

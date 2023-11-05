@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" #formComponent>
   <section class="reservation">
-    <div class="reservation__content">
+    <div class="reservation__content" [@fromLeft]="animationState$ | async">
       <div class="reservation__content-title">
         <div class="subtitle">
           <app-subtitle [text]="'reservation'"></app-subtitle>
@@ -54,7 +54,7 @@
         <app-btn-primary [btnText]="'Book a Table'" [textColor]="'accent'"></app-btn-primary>
       </div>
     </div>
-    <div class="reservation__image">
+    <div class="reservation__image" [@fadeIn]="animationState$ | async">
       <img src="../../../../../assets/images/booking/image1.png" alt="Booking image">
     </div>
   </section>
