@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" #articlesComponent>
   <section class="blog">
     <div class="blog__header">
       <div class="blog__header-subtitle">
@@ -12,7 +12,8 @@
       </div>
     </div>
     <div class="blog__items">
-      <div class="blog__items-item" *ngFor="let article of articleData.slice(startIndex, endIndex)">
+      <div class="blog__items-item" *ngFor="let article of articleData.slice(startIndex, endIndex)"
+      [@fromBottom]="animationState$ | async">
         <app-card-blog
         [image]="article.image"
         [title]="article.title"

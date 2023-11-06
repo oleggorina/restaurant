@@ -22,8 +22,8 @@ export const fadeIn = [
   trigger('fadeIn', [
     state('in', style({opacity: 1})),
     state('out', style({opacity: 0})),
-    transition('in => out', animate('0.4s ease-out')),
-    transition('out => in', animate('0.4s ease-in'))
+    transition('in => out', animate('0.3s ease-out')),
+    transition('out => in', animate('0.3s ease-in'))
   ])
 ];
 
@@ -41,6 +41,10 @@ export const fromBottom =  [
     state('in', style({opacity: 1, transform: 'translateY(0)'})),
     state('out', style({opacity: 0, transform: 'translateY(30px)'})),
     transition('in => out', animate(`0.3s ease-out`)),
-    transition('out => in', animate(`0.3s ease-in`))
+    transition('out => in', animate(`0.3s ease-in`)),
+    transition(':enter', [
+      style({ opacity: 0, transform: 'translateY(-30px)' }),
+      animate('0.3s', style({ opacity: 1, transform: 'translateY(0)' }))
+    ])
   ])
 ];

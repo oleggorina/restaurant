@@ -1,23 +1,31 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { ICardBlog } from 'src/app/interface/interface';
+import { AnimationService } from 'src/app/services/animation.service';
+import { fromBottom } from 'src/app/services/animations.const';
 import { BlogService } from 'src/app/services/blog.service';
 
 @Component({
   selector: 'app-blog-articles',
   templateUrl: './blog-articles.component.html',
   styleUrls: ['./blog-articles.component.scss'],
+  animations: [fromBottom],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogArticlesComponent implements OnInit, OnDestroy {
+  @ViewChild('articlesComponent') articlesComponent!: ElementRef;
   articleData: ICardBlog[] = [];
   articleDataSubscription!: Subscription;
 
   itemsPerPage: number = 2;
   currentPage: number = 1;
 
+  private animationStateSubject: BehaviorSubject<string> = new BehaviorSubject('out');
+  animationState$: Observable<string> = this.animationStateSubject.asObservable();
+
   constructor(private blogService: BlogService,
-    private changeDetectorRef: ChangeDetectorRef) {}
+    private changeDetectorRef: ChangeDetectorRef,
+    private animationService: AnimationService) {}
 
   ngOnInit(): void {
     this.articleDataSubscription = this.blogService.getArticles().subscribe(data => {
@@ -62,5 +70,10 @@ export class BlogArticlesComponent implements OnInit, OnDestroy {
     } else {
       this.itemsPerPage = 2;
     }
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    this.animationService.onScroll(this.articlesComponent, 200, this.animationStateSubject);
   }
 }
