@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" #infoComponent>
   <section class="contact">
-    <div class="contact__info">
+    <div class="contact__info" [@fromLeft]="animationState$ | async">
       <div class="title">
         <div class="title__title">
           <h4>Contact Information</h4>
@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-    <div class="contact__form">
+    <div class="contact__form" [@fromRight]="animationState$ | async">
       <div class="title">
         <div class="title__subtitle">
           <app-subtitle [text]="'mail us'"></app-subtitle>

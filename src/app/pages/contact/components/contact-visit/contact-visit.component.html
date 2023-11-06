@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" #visitComponent>
   <section class="visit">
     <div class="visit__title">
       <div class="visit__title-subtitle">
@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="visit__items">
-      <div class="item">
+      <div class="item" [@fromLeft]="animationState$ | async">
         <div class="content">
           <div class="content__title">
             <div class="content__title-title">
@@ -34,7 +34,7 @@
           <img src="../../../../../assets/images/contact/image1.jpg" alt="Image">
         </div>
       </div>
-      <div class="item">
+      <div class="item" [@fromRight]="animationState$ | async">
         <div class="content">
           <div class="content__title">
             <div class="content__title-title">
