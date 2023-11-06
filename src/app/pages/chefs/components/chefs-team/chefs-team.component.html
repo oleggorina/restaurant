@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" #chefsComponent>
   <section class="team">
     <div class="team__title">
       <div class="team__title-subtitle">
@@ -8,7 +8,7 @@
         <h4>Meet Our Professional Chefs</h4>
       </div>
     </div>
-    <div class="team__chefs">
+    <div class="team__chefs" [@fromBottom]="animationState$ | async">
       <app-team-card *ngFor="let team of teamData"
       [teamImage]="team.image"
       [teamName]="team.name"
