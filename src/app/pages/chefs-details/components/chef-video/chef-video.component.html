@@ -1,4 +1,4 @@
-<div class="section">
+<div class="section" #videoComponent>
   <div class="container">
     <section class="video">
       <div class="video__title">
@@ -9,7 +9,7 @@
           <h4>My Promo Video</h4>
         </div>
       </div>
-      <div class="video__player" #player>
+      <div class="video__player" [@fromBottom]="animationState$ | async">
         <div class="video__player-img">
           <img src="../../../../../assets/images/chefs/chef-video/image.jpg" alt="Video image">
         </div>

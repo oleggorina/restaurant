@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" #chefDetailComponent>
   <section class="chef">
-    <div class="chef__image">
+    <div class="chef__image" [@fadeIn]="animationState$ | async">
       <img src="{{chefData.image}}" alt="Chef Image">
     </div>
     <div class="chef__content">
-      <div class="title">
+      <div class="title" [@fromRight]="animationState$ | async">
         <div class="title__title">
           <h4>{{chefData.name}}</h4>
         </div>
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="contacts">
-        <div class="contacts__item">
+        <div class="contacts__item" [@contact1]="animationState$ | async">
           <div class="contacts__item-icon">
             <i class="fa-solid fa-briefcase"></i>
           </div>
@@ -25,7 +25,7 @@
             <span>{{chefData.experience}} Years of Experience</span>
           </div>
         </div>
-        <div class="contacts__item">
+        <div class="contacts__item" [@contact2]="animationState$ | async">
           <div class="contacts__item-icon">
             <i class="fa-regular fa-envelope"></i>
           </div>
@@ -34,7 +34,7 @@
             <span>{{chefData.email}}</span>
           </div>
         </div>
-        <div class="contacts__item">
+        <div class="contacts__item" [@contact3]="animationState$ | async">
           <div class="contacts__item-icon">
             <i class="fa-solid fa-phone"></i>
           </div>
@@ -43,7 +43,7 @@
             <span>{{chefData.phone}}</span>
           </div>
         </div>
-        <div class="contacts__item">
+        <div class="contacts__item" [@contact4]="animationState$ | async">
           <div class="contacts__item-icon">
             <i class="fa-solid fa-location-dot"></i>
           </div>
@@ -54,7 +54,7 @@
           </div>
         </div>
       </div>
-      <div class="socials">
+      <div class="socials" [@fromBottom]="animationState$ | async">
         <app-socials [textColor]="'primary'"></app-socials>
       </div>
     </div>
