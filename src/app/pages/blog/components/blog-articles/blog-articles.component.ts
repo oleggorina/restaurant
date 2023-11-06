@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { ICardBlog } from 'src/app/interface/interface';
@@ -9,7 +10,18 @@ import { BlogService } from 'src/app/services/blog.service';
   selector: 'app-blog-articles',
   templateUrl: './blog-articles.component.html',
   styleUrls: ['./blog-articles.component.scss'],
-  animations: [fromBottom],
+  animations: [
+    trigger('items', [
+      state('in', style({opacity: 1, transform: 'translateY(0)'})),
+      state('out', style({opacity: 0, transform: 'translateY(30px)'})),
+      transition('in => out', animate(`0.3s ease-out`)),
+      transition('out => in', animate(`0.3s ease-in`)),
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(-30px)' }),
+        animate('0.3s', style({ opacity: 1, transform: 'translateY(0)' }))
+      ])
+    ])
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogArticlesComponent implements OnInit, OnDestroy {

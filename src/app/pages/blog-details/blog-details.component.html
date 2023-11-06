@@ -1,21 +1,21 @@
-<div class="container">
+<div class="container" #detailsComponent>
   <section class="blog">
     <div class="blog__header">
-      <div class="blog__header-subtitle">
+      <div class="blog__header-subtitle" [@fromRight]="animationState$ | async">
         <app-subtitle [text]="blogData.type"></app-subtitle>
         <app-subtitle [text]="blogData.date"></app-subtitle>
       </div>
-      <div class="blog__header-title">
+      <div class="blog__header-title" [@fromBottom]="animationState$ | async">
         <h2>{{blogData.title}}</h2>
       </div>
-      <div class="blog__header-text">
+      <div class="blog__header-text" [@fromBottom]="animationState$ | async">
         <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content making.</p>
       </div>
     </div>
     <div class="blog__image">
       <img src="{{blogData.image}}" alt="Image">
     </div>
-    <div class="blog__content">
+    <div class="blog__content" [@fromBottom]="animationState$ | async">
       <div class="blog__content-descr">
         <p>Uniquely matrix economically sound value through cooperative technology. Competently parallel task fully researched data and enterprise process improvements. Collaboratively expedite quality manufactured products via client-focused results quickly communicate enabled technology and turnkey leadership skills. Uniquely enable accurate supply chains rather than friction technology.</p>
       </div>

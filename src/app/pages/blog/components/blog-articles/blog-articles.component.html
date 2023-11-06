@@ -13,7 +13,7 @@
     </div>
     <div class="blog__items">
       <div class="blog__items-item" *ngFor="let article of articleData.slice(startIndex, endIndex)"
-      [@fromBottom]="animationState$ | async">
+      [@items]="animationState$ | async">
         <app-card-blog
         [image]="article.image"
         [title]="article.title"
