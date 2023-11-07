@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { gsap } from 'gsap';
+import { AfterViewInit, Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { fadeIn } from 'src/app/services/animations.const';
 

@@ -2,9 +2,12 @@
 
 .parallax {
   height: 600px;
-  background-image: url('../../../../../assets/images/home/parallax/photo.png');
+  background-image: url('../../../../../assets/images/home/parallax/photo.webp');
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  @include sm {
+    display: none;
+  }
 }
