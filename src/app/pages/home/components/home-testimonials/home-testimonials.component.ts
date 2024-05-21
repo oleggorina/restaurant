@@ -74,8 +74,6 @@ export class HomeTestimonialsComponent implements OnInit, AfterViewInit, OnDestr
       this.totalSlides,
       this.renderer);
     if (this.currentIndex < (this.slideIndicators.length - 1)) this.currentIndex++;
-    
-    console.log(this.currentIndex)
   }
 
   goPrev(): void {
@@ -86,7 +84,6 @@ export class HomeTestimonialsComponent implements OnInit, AfterViewInit, OnDestr
       this.currentIndex,
       this.renderer);
     if (this.currentIndex > 0) this.currentIndex--;
-    console.log(this.currentIndex)
   }
 
   goToSlide(slideIndex: number): void {
